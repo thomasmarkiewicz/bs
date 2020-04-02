@@ -1,0 +1,25 @@
+{
+    "exercise_id": "1",
+    "exercise_name": "Bench Press",
+    "sets": [
+        {
+            "target_reps": 5,
+            "target_rest": 180,
+            "target_weight": 135,
+            "reps": 5,
+            "weight": 135
+        },
+        {
+            "target_reps": 5,
+            "target_rest": 180,
+            "target_weight": 135,
+            "reps": 4,
+            "weight": 130
+        },
+        {
+            "target_reps": 5,
+            "target_rest": 180,
+            "target_weight": 135
+        }
+    ]
+}

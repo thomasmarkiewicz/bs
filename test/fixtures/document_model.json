@@ -1,0 +1,116 @@
+{
+    "version": "0.0.1",
+    "sync_counter": 0,
+	"exercises": [
+		{
+			"id": "0537cd19644c",
+			"name": "Squats"
+		},
+		{
+			"id": "33871bf6de60",
+			"name": "Bench Press"
+		},
+		{
+			"id": "7eef10e8aaed",
+			"name": "Shoulder Press"
+		},
+		{
+			"id": "056672996981",
+			"name": "Rows"
+		},
+		{
+			"id": "ca1240b16dab",
+			"name": "Deadlifts"
+		}
+	],
+	"workout_templates": [
+		{
+			"activity": "lift",
+			"name": "StrongLifts 5x5 A",
+			"description": "Squat, Bench, Deadlift",
+			"supersets": [
+				[
+					{
+						"exercise_id": "0537cd19644c",
+						"exercise_name": "Squats",
+						"sets": [
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 }
+						]
+					}
+                ],
+                [
+					{
+						"exercise_id": "33871bf6de60",
+						"exercise_name": "Bench Press",
+						"sets": [
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 }
+						]
+					}
+                ],
+                [
+					{
+						"exercise_id": "ca1240b16dab",
+						"exercise_name": "Deadlifts",
+						"sets": [
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 }
+						]
+					}
+				]
+			]
+        },
+        {
+			"activity": "lift",
+			"name": "StrongLifts 5x5 B",
+			"description": "Squat, Shoulder Press, Rows",
+			"supersets": [
+				[
+					{
+						"exercise_id": "0537cd19644c",
+						"exercise_name": "Squats",
+						"sets": [
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 }
+						]
+					}
+                ],
+                [
+					{
+						"exercise_id": "7eef10e8aaed",
+						"exercise_name": "Shoulder Press",
+						"sets": [
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 }
+						]
+					}
+                ],
+                [
+					{
+						"exercise_id": "056672996981",
+						"exercise_name": "Rows",
+						"sets": [
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 },
+							{ "target_reps": 5, "target_rest": 180, "target_weight": 45 }
+						]
+					}
+				]
+			]
+		}
+	]
+}
