@@ -15,9 +15,10 @@ class AddWorkoutFloatingActionButton extends StatelessWidget {
       if (state is Initial) {
         return _buildFab(context);
       } else if (state is Ready) {
-        final visible = state.workoutSummaries.length > 0 &&
-            state.workoutSummaries[0].isFinished();
-        return visible
+        final showAddFab = state.workoutSummaries.length == 0 ||
+            (state.workoutSummaries.length > 0 &&
+                state.workoutSummaries[0].isFinished());
+        return showAddFab
             ? _buildFab(context)
             : _buildContinueFab(context, state.workoutSummaries[0]);
       } else if (state is Final) {
