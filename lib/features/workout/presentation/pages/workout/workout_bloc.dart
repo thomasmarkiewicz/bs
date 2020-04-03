@@ -28,6 +28,8 @@ class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
       yield* _refresh(event);
     } else if (event is WorkoutSelected) {
       yield* _workoutSelected(event);
+    } else if (event is ActivitySelected) {
+      yield* _activitySelected(event);
     }
   }
 
@@ -40,7 +42,8 @@ class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
     );
     yield result.fold(
       (failure) => state, // TODO: indicate failure somehow
-      (summaries) => Ready(summaries), // TODO: NEXT - gets here but workout_page doesn't see this state change, why???
+      (summaries) => Ready(
+          summaries), // TODO: NEXT - gets here but workout_page doesn't see this state change, why???
     );
   }
 
@@ -56,4 +59,8 @@ class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
       (workout) => Final(workout),
     );
   }
+}
+
+Stream<WorkoutState> _activitySelected(ActivitySelected event) async* {
+  yield Adding(event.activity);
 }

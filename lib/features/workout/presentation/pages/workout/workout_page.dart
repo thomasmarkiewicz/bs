@@ -1,5 +1,6 @@
 import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
 import 'package:bodysculpting/features/workout/presentation/pages/recording/recording_page.dart';
+import 'package:bodysculpting/features/workout/presentation/pages/templates/templates_page.dart';
 import 'package:bodysculpting/features/workout/presentation/pages/workout/widgets/add_workout_fab.dart';
 import 'package:bodysculpting/features/workout/presentation/pages/workout/widgets/workout_summary_tile.dart';
 import 'package:bodysculpting/features/workout/presentation/pages/workout/workout_bloc.dart';
@@ -41,6 +42,17 @@ class WorkoutPage extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) => RecordingPage(template: state.workout),
+            ),
+          ).then((_) {
+            BlocProvider.of<WorkoutBloc>(context).add(
+              Refresh(),
+            );
+          });
+        } else if (state is Adding) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => TemplatesPage(activity: state.activity),
             ),
           ).then((_) {
             BlocProvider.of<WorkoutBloc>(context).add(

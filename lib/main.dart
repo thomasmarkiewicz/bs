@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       title: 'Body Sculpting',
       theme: lightTheme,
       darkTheme: darkTheme,
-      themeMode: ThemeMode.dark,
+      //themeMode: ThemeMode.dark,
       home: WorkoutPage(),
     );
   }

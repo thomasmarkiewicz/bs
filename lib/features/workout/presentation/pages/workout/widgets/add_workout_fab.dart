@@ -46,6 +46,7 @@ class AddWorkoutFloatingActionButton extends StatelessWidget {
   }
 
   Widget _buildFab(BuildContext context) {
+    final workoutPageContext = context;
     return FloatingActionButton.extended(
       label: Text('New workout'),
       icon: Icon(Icons.add),
@@ -62,47 +63,59 @@ class AddWorkoutFloatingActionButton extends StatelessWidget {
                   ListTile(
                     leading: Icon(Icons.ac_unit),
                     title: Text('Lift'),
-                    onTap: () => _onActivityTapped(context, Activity.lift),
+                    onTap: () => _onActivityTapped(
+                      bottomSheetContext: context,
+                      workoutPageContext: workoutPageContext,
+                      activity: Activity.lift,
+                    ),
                   ),
                   ListTile(
                     leading: Icon(Icons.accessibility_new),
                     title: Text('Swim'),
-                    onTap: () => _onActivityTapped(context, Activity.swim),
+                    onTap: () => _onActivityTapped(
+                      bottomSheetContext: context,
+                      workoutPageContext: workoutPageContext,
+                      activity: Activity.swim,
+                    ),
                     enabled: false,
                   ),
                   ListTile(
                     leading: Icon(Icons.assessment),
                     title: Text('Bike'),
-                    onTap: () => _onActivityTapped(context, Activity.bike),
+                    onTap: () => _onActivityTapped(
+                      bottomSheetContext: context,
+                      workoutPageContext: workoutPageContext,
+                      activity: Activity.bike,
+                    ),
                     enabled: false,
                   ),
                   ListTile(
                     leading: Icon(Icons.radio),
                     title: Text('Run'),
-                    onTap: () => _onActivityTapped(context, Activity.run),
+                    onTap: () => _onActivityTapped(
+                      bottomSheetContext: context,
+                      workoutPageContext: workoutPageContext,
+                      activity: Activity.run,
+                    ),
                     enabled: false,
                   )
                 ],
               ),
             );
           },
-        ).then((_) {
-          BlocProvider.of<WorkoutBloc>(context).add(
-            Refresh(),
-          );
-        });
+        );
       },
     );
   }
 
-  _onActivityTapped(BuildContext context, Activity activity) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => TemplatesPage(activity: activity),
-      ),
-    ).then((_) {
-      Navigator.pop(context);
-    });
+  _onActivityTapped({
+    @required BuildContext bottomSheetContext,
+    @required BuildContext workoutPageContext,
+    @required Activity activity,
+  }) {
+    BlocProvider.of<WorkoutBloc>(workoutPageContext).add(
+      ActivitySelected(activity),
+    );
+    Navigator.pop(bottomSheetContext);
   }
 }

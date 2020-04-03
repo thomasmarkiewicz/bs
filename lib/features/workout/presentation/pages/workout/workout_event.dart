@@ -1,3 +1,4 @@
+import 'package:bodysculpting/features/workout/domain/entities/workout_base.dart';
 import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
 import 'package:equatable/equatable.dart';
 
@@ -17,4 +18,13 @@ class WorkoutSelected extends WorkoutEvent {
 
   @override
   List<Object> get props => [workoutSummary];
+}
+
+class ActivitySelected extends WorkoutEvent {
+  final Activity activity;
+
+  ActivitySelected(this.activity);
+
+  @override
+  List<Object> get props => [activity];
 }
