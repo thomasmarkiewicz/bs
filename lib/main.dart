@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
     accentColor: Colors.redAccent,
     accentColorBrightness: Brightness.dark,
     disabledColor: Colors.grey.shade700,
-    //buttonColor: Colors.grey.shade500,
+    buttonColor: Colors.grey.shade500,
     //buttonColor: Colors.blueAccent,
   );
 
