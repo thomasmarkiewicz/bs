@@ -36,6 +36,7 @@ class ExerciseSet extends Equatable {
               targetReps: rep.targetReps,
               targetRest: rep.targetRest,
               reps: reps,
+              weight: (index == repIndex) ? some(this.targetWeight) : rep.weight,
             ),
           );
         })
