@@ -27,6 +27,15 @@ class Active extends RecordingState {
   Active(this.workout);
 }
 
+class Updating extends RecordingState {
+  final Workout workout;
+
+  @override
+  List<Object> get props => [workout];
+
+  Updating(this.workout);
+}
+
 class Finished extends RecordingState {
   final Workout workout;
 

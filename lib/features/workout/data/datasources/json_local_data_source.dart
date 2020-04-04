@@ -9,7 +9,6 @@ import 'package:bodysculpting/features/workout/data/models/rep_model.dart';
 import 'package:bodysculpting/features/workout/data/models/units_model.dart';
 import 'package:bodysculpting/features/workout/data/models/workout_model.dart';
 import 'package:bodysculpting/features/workout/data/models/workout_summary_model.dart';
-import 'package:bodysculpting/features/workout/domain/entities/units.dart';
 import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
 import 'package:dartz/dartz.dart';
 import 'package:path_provider/path_provider.dart';

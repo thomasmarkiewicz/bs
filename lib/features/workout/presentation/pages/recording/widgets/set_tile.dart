@@ -8,12 +8,14 @@ class SetTile extends StatelessWidget {
   final Units units;
   final ExerciseSet exerciseSet;
   final Function(int) onRepPressed;
+  final Function(int) onTargetWeightChanged;
 
   const SetTile({
     Key key,
     @required this.units,
     @required this.exerciseSet,
     this.onRepPressed,
+    this.onTargetWeightChanged,
   }) : super(key: key);
 
   @override
@@ -34,19 +36,18 @@ class SetTile extends StatelessWidget {
               exerciseSet.exerciseName,
               style: textStyle,
             )),
-            FlatButton(
-              child: SizedBox(
-                width: 60,
-                child: Text(
-                  "${exerciseSet.targetWeight.toString()} ${units.weight}",
-                  style: buttonTextStyle,
-                  textAlign: TextAlign.right,
+            DropdownButton<int>(
+                style: buttonTextStyle,
+                value: exerciseSet.targetWeight,
+                items: List<DropdownMenuItem<int>>.generate(
+                  100,
+                  (i) => DropdownMenuItem<int>(
+                    value: i * 5,
+                    child: Text("${i * 5} ${units.weight}"),
+                  ),
                 ),
-              ),
-              onPressed: () {
-                print('TODO');
-              },
-            ),
+                onChanged: (value) => this.onTargetWeightChanged(value),
+                ),
           ],
         ),
         Row(
@@ -87,4 +88,13 @@ class SetTile extends StatelessWidget {
       ],
     ));
   }
+
+  List<DropdownMenuItem<int>> _weightItems() =>
+      List<DropdownMenuItem<int>>.generate(
+        100,
+        (i) => DropdownMenuItem<int>(
+          value: i * 5,
+          child: Text("${i * 5} ${units.weight}"),
+        ),
+      );
 }

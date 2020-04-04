@@ -49,4 +49,14 @@ class ExerciseSet extends Equatable {
       sets: updatedSets,
     );
   }
+
+  // TODO: write a test for this
+  ExerciseSet updateTargetWeight(int weight) {
+    return ExerciseSet(
+      exerciseId: this.exerciseId,
+      exerciseName: this.exerciseName,
+      targetWeight: weight,
+      sets: this.sets,
+    );
+  }
 }

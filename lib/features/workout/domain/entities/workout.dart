@@ -91,4 +91,40 @@ class Workout extends WorkoutSummary {
       supersets: supersets,
     );
   }
+
+
+  // TODO: write a test for this
+  Workout updateTargetWeight({
+    @required int supersetIndex,
+    @required int exerciseSetIndex,
+    @required int weight,
+  }) {
+    final supersets = List<List<ExerciseSet>>();
+    if (this.supersets != null) {
+      this.supersets.asMap().forEach((ii, ss) {
+        if (ii == supersetIndex) {
+          final superset = List.of(ss
+              .asMap()
+              .map((i, s) => (i == exerciseSetIndex)
+                  ? MapEntry(i, s.updateTargetWeight(weight)) // TODO: refactor? this is the only line that is different then in the method above
+                  : MapEntry(i, s))
+              .values);
+          supersets.add(superset);
+        } else {
+          supersets.add(ss);
+        }
+      });
+    }
+
+    return Workout(
+      name: this.name,
+      activity: this.activity,
+      units: this.units,
+      description: this.description,
+      start: this.start.orElse(() => some(DateTime.now())),
+      end: this.end,
+      summary: this.summary,
+      supersets: supersets,
+    );
+  }
 }

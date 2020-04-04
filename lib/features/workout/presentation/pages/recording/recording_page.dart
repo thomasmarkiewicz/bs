@@ -33,6 +33,8 @@ class RecordingPage extends StatelessWidget {
           return _buildSupersetsView(context: context, workout: state.workout);
         } else if (state is Active) {
           return _buildSupersetsView(context: context, workout: state.workout);
+        } else if (state is Updating) {
+          return _buildSupersetsView(context: context, workout: state.workout);
         } else if (state is Finished) {
           //return _buildSupersetsView(context: context, workout: state.workout);
           Navigator.pop(context);
@@ -66,6 +68,15 @@ class RecordingPage extends StatelessWidget {
                       supersetIndex: index,
                       exerciseSetIndex: exerciseSetIndex,
                       repIndex: repIndex,
+                    ),
+                  );
+                },
+                onTargetWeightChanged: (exerciseSetIndex, value) {
+                  BlocProvider.of<RecordingBloc>(context).add(
+                    TargetWeightChanged(
+                      supersetIndex: index,
+                      exerciseSetIndex: exerciseSetIndex,
+                      value: value,
                     ),
                   );
                 },

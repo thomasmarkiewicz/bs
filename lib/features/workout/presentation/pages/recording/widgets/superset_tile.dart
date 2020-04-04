@@ -7,11 +7,13 @@ class SupersetTile extends StatelessWidget {
   final Units units;
   final List<ExerciseSet> superset;
   final Function(int, int) onExerciseSetRepPressed;
+  final Function(int ,int) onTargetWeightChanged;
   const SupersetTile({
     Key key,
     @required this.units,
     @required this.superset,
     this.onExerciseSetRepPressed,
+    this.onTargetWeightChanged,
   }) : super(key: key);
 
   @override
@@ -34,6 +36,7 @@ class SupersetTile extends StatelessWidget {
                 // in superset 'supersetIndex'
                 this.onExerciseSetRepPressed(index, repIndex);
               },
+              onTargetWeightChanged: (value) => this.onTargetWeightChanged(index, value),
             );
           },
         ),

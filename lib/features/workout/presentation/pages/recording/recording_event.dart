@@ -28,6 +28,21 @@ class RecordReps extends RecordingEvent {
   });
 }
 
+class TargetWeightChanged extends RecordingEvent {
+  final int supersetIndex;
+  final int exerciseSetIndex;
+  final int value;
+
+  TargetWeightChanged({
+    @required this.supersetIndex,
+    @required this.exerciseSetIndex,
+    @required this.value,
+  });
+
+  @override
+  List<Object> get props => [supersetIndex, exerciseSetIndex, value];
+}
+
 class WorkoutFinished extends RecordingEvent {
   @override
   List<Object> get props => null;
