@@ -1,5 +1,4 @@
 import 'package:bodysculpting/features/workout/domain/entities/workout.dart';
-import 'package:bodysculpting/features/workout/domain/entities/workout_base.dart';
 import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
 import 'package:equatable/equatable.dart';
 

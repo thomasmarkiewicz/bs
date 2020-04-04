@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:bodysculpting/core/error/failures.dart';
 import 'package:bodysculpting/features/workout/domain/entities/workout.dart';
-import 'package:bodysculpting/features/workout/domain/entities/workout_base.dart';
+import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
 import 'package:bodysculpting/features/workout/domain/usecases/get_workout_templates.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';

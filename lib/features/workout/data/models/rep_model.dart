@@ -6,13 +6,11 @@ class RepModel extends Rep {
   RepModel({
     @required int targetReps,
     @required int targetRest,
-    @required int targetWeight,
     Option<int> reps,
     Option<int> weight,
   }) : super(
           targetReps: targetReps,
           targetRest: targetRest,
-          targetWeight: targetWeight,
           reps: reps,
           weight: weight,
         );
@@ -21,7 +19,6 @@ class RepModel extends Rep {
     return RepModel(
       targetReps: rep.targetReps,
       targetRest: rep.targetRest,
-      targetWeight: rep.targetWeight,
       reps: rep.reps,
       weight: rep.weight,
     );
@@ -31,7 +28,6 @@ class RepModel extends Rep {
     return RepModel(
       targetReps: json['target_reps'],
       targetRest: json['target_rest'],
-      targetWeight: json['target_weight'],
       reps: json.containsKey('reps') ? some(json['reps']) : none(),
       weight: json.containsKey('weight') ? some(json['weight']) : none(),
     );
@@ -41,7 +37,6 @@ class RepModel extends Rep {
     final map = {
       'target_reps': targetReps,
       'target_rest': targetRest,
-      'target_weight': targetWeight,
     };
 
     reps.fold(

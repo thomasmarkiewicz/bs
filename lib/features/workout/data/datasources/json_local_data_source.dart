@@ -6,9 +6,11 @@ import 'package:bodysculpting/features/workout/data/models/document_model.dart';
 import 'package:bodysculpting/features/workout/data/models/exercise_model.dart';
 import 'package:bodysculpting/features/workout/data/models/exercise_set_model.dart';
 import 'package:bodysculpting/features/workout/data/models/rep_model.dart';
+import 'package:bodysculpting/features/workout/data/models/units_model.dart';
 import 'package:bodysculpting/features/workout/data/models/workout_model.dart';
 import 'package:bodysculpting/features/workout/data/models/workout_summary_model.dart';
-import 'package:bodysculpting/features/workout/domain/entities/workout_base.dart';
+import 'package:bodysculpting/features/workout/domain/entities/units.dart';
+import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
 import 'package:dartz/dartz.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:intl/intl.dart';
@@ -80,17 +82,22 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
             activity: Activity.lift,
             name: "StrongLifts 5x5 A",
             description: some("Squat, Bench, Deadlift"),
+            units: UnitsModel(
+              weight: "lb",
+              distance: "mi",
+            ),
             supersets: [
               [
                 ExerciseSetModel(
                   exerciseId: "0537cd19644c",
                   exerciseName: "Squats",
+                  targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45)
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180)
                   ],
                 ),
               ],
@@ -98,12 +105,13 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                 ExerciseSetModel(
                   exerciseId: "33871bf6de60",
                   exerciseName: "Bench Press",
+                  targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45)
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180)
                   ],
                 ),
               ],
@@ -111,9 +119,8 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                 ExerciseSetModel(
                   exerciseId: "ca1240b16dab",
                   exerciseName: "Deadlifts",
-                  sets: [
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45)
-                  ],
+                  targetWeight: 45,
+                  sets: [RepModel(targetReps: 5, targetRest: 180)],
                 ),
               ],
             ],
@@ -122,17 +129,22 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
             activity: Activity.lift,
             name: "StrongLifts 5x5 B",
             description: some("Squat, Shoulder Press, Rows"),
+            units: UnitsModel(
+              weight: "lb",
+              distance: "mi",
+            ),
             supersets: [
               [
                 ExerciseSetModel(
                   exerciseId: "0537cd19644c",
                   exerciseName: "Squats",
+                  targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45)
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
                   ],
                 ),
               ],
@@ -140,12 +152,13 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                 ExerciseSetModel(
                   exerciseId: "7eef10e8aaed",
                   exerciseName: "Shoulder Press",
+                  targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45)
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180)
                   ],
                 ),
               ],
@@ -153,12 +166,13 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                 ExerciseSetModel(
                   exerciseId: "056672996981",
                   exerciseName: "Rows",
+                  targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45)
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180),
+                    RepModel(targetReps: 5, targetRest: 180)
                   ],
                 ),
               ],
@@ -168,22 +182,28 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
             activity: Activity.lift,
             name: "Body Sculpting - Break In #1 - A",
             description: some("Dumbbell starting routine"),
+            units: UnitsModel(
+              weight: "lb",
+              distance: "mi",
+            ),
             supersets: [
               [
                 ExerciseSetModel(
                   exerciseId: "3e904e0972c4",
                   exerciseName: "Dumbbell Rows (one arm)",
+                  targetWeight: 20,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 20),
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 20),
+                    RepModel(targetReps: 15, targetRest: 90),
+                    RepModel(targetReps: 15, targetRest: 90),
                   ],
                 ),
                 ExerciseSetModel(
                   exerciseId: "19b420dafb22",
                   exerciseName: "Push-ups",
+                  targetWeight: 0,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 0),
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 0),
+                    RepModel(targetReps: 15, targetRest: 9),
+                    RepModel(targetReps: 15, targetRest: 9),
                   ],
                 ),
               ],
@@ -191,17 +211,19 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                 ExerciseSetModel(
                   exerciseId: "490d6d0ec5f0",
                   exerciseName: "Dumbbell Rows (two arms)",
+                  targetWeight: 20,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 20),
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 20),
+                    RepModel(targetReps: 15, targetRest: 90),
+                    RepModel(targetReps: 15, targetRest: 90),
                   ],
                 ),
                 ExerciseSetModel(
                   exerciseId: "4bfc6352fcfb",
                   exerciseName: "Dumbbell Flys (flat)",
+                  targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 10),
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 10),
+                    RepModel(targetReps: 15, targetRest: 90),
+                    RepModel(targetReps: 15, targetRest: 90),
                   ],
                 ),
               ],
@@ -209,17 +231,19 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                 ExerciseSetModel(
                   exerciseId: "fcea91c905fa",
                   exerciseName: "Dumbbell Curls",
+                  targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 10),
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 10),
+                    RepModel(targetReps: 15, targetRest: 90),
+                    RepModel(targetReps: 15, targetRest: 90),
                   ],
                 ),
                 ExerciseSetModel(
                   exerciseId: "4cab4ad2ce41",
                   exerciseName: "Dumbbell Extensions (lying)",
+                  targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 10),
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 10),
+                    RepModel(targetReps: 15, targetRest: 90),
+                    RepModel(targetReps: 15, targetRest: 90),
                   ],
                 ),
               ],
@@ -227,17 +251,19 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                 ExerciseSetModel(
                   exerciseId: "ebe07cb7b8a4",
                   exerciseName: "Dumbbell Hammer Curls",
+                  targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 10),
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 10),
+                    RepModel(targetReps: 15, targetRest: 90),
+                    RepModel(targetReps: 15, targetRest: 90),
                   ],
                 ),
                 ExerciseSetModel(
                   exerciseId: "3febf26fdef2",
                   exerciseName: "Dumbbell Extensions (overhead)",
+                  targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 10),
-                    RepModel(targetReps: 15, targetRest: 90, targetWeight: 10),
+                    RepModel(targetReps: 15, targetRest: 90),
+                    RepModel(targetReps: 15, targetRest: 90),
                   ],
                 ),
               ],
@@ -247,46 +273,54 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
             activity: Activity.lift,
             name: "Body Sculpting #1",
             description: some("Weeks 5 & 6 - Day 1"),
+            units: UnitsModel(
+              weight: "lb",
+              distance: "mi",
+            ),
             supersets: [
               [
                 ExerciseSetModel(
                   exerciseId: "3e904e0972c4",
                   exerciseName: "Dumbbell Rows (one arm)",
+                  targetWeight: 20,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 20),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 20),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 20),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 20),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
                   ],
                 ),
                 ExerciseSetModel(
                   exerciseId: "19b420dafb22",
                   exerciseName: "Push-ups",
+                  targetWeight: 0,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 0),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 0),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 0),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
                   ],
                 ),
                 ExerciseSetModel(
                   exerciseId: "490d6d0ec5f0",
                   exerciseName: "Dumbbell Rows (two arms)",
+                  targetWeight: 20,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 20),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 20),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 20),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 20),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
                   ],
                 ),
                 ExerciseSetModel(
                   exerciseId: "4bfc6352fcfb",
                   exerciseName: "Dumbbell Flys (flat)",
+                  targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 60, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 60, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 60, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 60, targetWeight: 10),
+                    RepModel(targetReps: 8, targetRest: 60),
+                    RepModel(targetReps: 8, targetRest: 60),
+                    RepModel(targetReps: 8, targetRest: 60),
+                    RepModel(targetReps: 8, targetRest: 60),
                   ],
                 ),
               ],
@@ -294,41 +328,45 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                 ExerciseSetModel(
                   exerciseId: "fcea91c905fa",
                   exerciseName: "Dumbbell Curls",
+                  targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 10),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
                   ],
                 ),
                 ExerciseSetModel(
                   exerciseId: "4cab4ad2ce41",
                   exerciseName: "Dumbbell Extensions (lying)",
+                  targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 10),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
                   ],
                 ),
                 ExerciseSetModel(
                   exerciseId: "ebe07cb7b8a4",
                   exerciseName: "Dumbbell Hammer Curls",
+                  targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 0, targetWeight: 10),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
+                    RepModel(targetReps: 8, targetRest: 0),
                   ],
                 ),
                 ExerciseSetModel(
                   exerciseId: "3febf26fdef2",
                   exerciseName: "Dumbbell Extensions (overhead)",
+                  targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 60, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 60, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 60, targetWeight: 10),
-                    RepModel(targetReps: 8, targetRest: 60, targetWeight: 10),
+                    RepModel(targetReps: 8, targetRest: 60),
+                    RepModel(targetReps: 8, targetRest: 60),
+                    RepModel(targetReps: 8, targetRest: 60),
+                    RepModel(targetReps: 8, targetRest: 60),
                   ],
                 ),
               ],

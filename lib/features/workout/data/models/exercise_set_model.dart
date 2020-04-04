@@ -8,11 +8,16 @@ class ExerciseSetModel extends ExerciseSet {
   ExerciseSetModel({
     @required String exerciseId,
     @required String exerciseName,
+    @required int targetWeight,
     @required List<RepModel> sets,
-  }) : super(exerciseId: exerciseId, exerciseName: exerciseName, sets: sets);
+  }) : super(
+          exerciseId: exerciseId,
+          exerciseName: exerciseName,
+          targetWeight: targetWeight,
+          sets: sets,
+        );
 
   factory ExerciseSetModel.from(ExerciseSet exerciseSet) {
-
     List<RepModel> setList = exerciseSet.sets != null
         ? exerciseSet.sets.map((s) => RepModel.from(s)).toList()
         : List<RepModel>();
@@ -20,6 +25,7 @@ class ExerciseSetModel extends ExerciseSet {
     return ExerciseSetModel(
       exerciseId: exerciseSet.exerciseId,
       exerciseName: exerciseSet.exerciseName,
+      targetWeight: exerciseSet.targetWeight,
       sets: setList,
     );
   }
@@ -33,6 +39,7 @@ class ExerciseSetModel extends ExerciseSet {
     return ExerciseSetModel(
       exerciseId: json['exercise_id'],
       exerciseName: json['exercise_name'],
+      targetWeight: json['target_weight'],
       sets: setList,
     );
   }
@@ -45,6 +52,7 @@ class ExerciseSetModel extends ExerciseSet {
     return {
       'exercise_id': exerciseId,
       'exercise_name': exerciseName,
+      'target_weight': targetWeight,
       'sets': sets,
     };
   }

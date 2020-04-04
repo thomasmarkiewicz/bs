@@ -1,9 +1,6 @@
-import 'package:bodysculpting/features/workout/domain/entities/workout_base.dart';
 import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
-import 'package:bodysculpting/features/workout/presentation/pages/templates/templates_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../bloc.dart';
 
 class AddWorkoutFloatingActionButton extends StatelessWidget {

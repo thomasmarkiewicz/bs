@@ -54,13 +54,11 @@ class RepsButton extends StatelessWidget {
     final rep = set.getOrElse(() => Rep(
           targetReps: 0,
           targetRest: 0,
-          targetWeight: 0,
         ));
 
     final repCount = rep.reps.getOrElse(() => rep.targetReps);
 
-    return Text(
-        repCount.toString(),
+    return Text(repCount.toString(),
         style: TextStyle(
           color: rep.reps.isNone() ? Colors.grey.shade700 : Colors.white,
           fontSize: 20,

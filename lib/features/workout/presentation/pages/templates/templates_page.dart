@@ -1,5 +1,5 @@
 import 'package:bodysculpting/features/workout/domain/entities/workout.dart';
-import 'package:bodysculpting/features/workout/domain/entities/workout_base.dart';
+import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
 import 'package:bodysculpting/features/workout/presentation/pages/recording/recording_page.dart';
 import 'package:bodysculpting/features/workout/presentation/pages/templates/templates_bloc.dart';
 import 'package:flutter/material.dart';

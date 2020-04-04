@@ -1,14 +1,17 @@
 import 'package:bodysculpting/features/workout/domain/entities/exercise_set.dart';
+import 'package:bodysculpting/features/workout/domain/entities/units.dart';
 import 'package:bodysculpting/features/workout/presentation/pages/recording/widgets/reps_button.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 
 class SetTile extends StatelessWidget {
+  final Units units;
   final ExerciseSet exerciseSet;
   final Function(int) onRepPressed;
 
   const SetTile({
     Key key,
+    @required this.units,
     @required this.exerciseSet,
     this.onRepPressed,
   }) : super(key: key);
@@ -16,19 +19,38 @@ class SetTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = exerciseSet.sets.length;
+    final textStyle =
+        DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.2);
+    final buttonTextStyle = DefaultTextStyle.of(context)
+        .style
+        .apply(fontSizeFactor: 1.2, color: Colors.lightBlueAccent);
     return Container(
         child: Column(
       children: <Widget>[
         Row(
           children: <Widget>[
-            Text(
+            Expanded(
+                child: Text(
               exerciseSet.exerciseName,
-              style:
-                  DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.2),
+              style: textStyle,
+            )),
+            FlatButton(
+              child: SizedBox(
+                width: 60,
+                child: Text(
+                  "${exerciseSet.targetWeight.toString()} ${units.weight}",
+                  style: buttonTextStyle,
+                  textAlign: TextAlign.right,
+                ),
+              ),
+              onPressed: () {
+                print('TODO');
+              },
             ),
           ],
         ),
-        Row( // TODO: can this be refactored into a ListBuilder?
+        Row(
+          // TODO: can this be refactored into a ListBuilder?
           children: <Widget>[
             Expanded(
               child: RepsButton(
@@ -65,5 +87,4 @@ class SetTile extends StatelessWidget {
       ],
     ));
   }
-
 }

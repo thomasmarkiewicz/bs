@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     //canvasColor: Colors.indigo.shade50,
     // cardColor:
     // disabledColor:
-    // buttonColor:
+    // buttonColor: Colors.blueAccent,
     // ToggleButtonsThemeData toggleButtonsTheme
     // hintColor:
     // errorColor:
@@ -31,7 +31,8 @@ class MyApp extends StatelessWidget {
     accentColor: Colors.redAccent,
     accentColorBrightness: Brightness.dark,
     disabledColor: Colors.grey.shade700,
-    buttonColor: Colors.grey.shade500,
+    //buttonColor: Colors.grey.shade500,
+    //buttonColor: Colors.blueAccent,
   );
 
   @override

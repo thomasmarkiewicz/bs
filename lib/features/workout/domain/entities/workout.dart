@@ -1,4 +1,4 @@
-import 'package:bodysculpting/features/workout/domain/entities/workout_base.dart';
+import 'package:bodysculpting/features/workout/domain/entities/units.dart';
 import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
@@ -15,6 +15,7 @@ class Workout extends WorkoutSummary {
   Workout({
     @required String name,
     @required Activity activity,
+    @required Units units,
     Option<String> description,
     Option<DateTime> start,
     Option<DateTime> end,
@@ -23,6 +24,7 @@ class Workout extends WorkoutSummary {
   }) : super(
           name: name,
           activity: activity,
+          units: units,
           description: description,
           start: start,
           end: end,
@@ -33,6 +35,7 @@ class Workout extends WorkoutSummary {
     return Workout(
       name: this.name,
       activity: this.activity,
+      units: this.units,
       description: this.description,
       start: some(DateTime.now()),
       end: this.end,
@@ -45,6 +48,7 @@ class Workout extends WorkoutSummary {
     return Workout(
       name: this.name,
       activity: this.activity,
+      units: this.units,
       description: this.description,
       start: this.start,
       end: some(DateTime.now()),
@@ -79,6 +83,7 @@ class Workout extends WorkoutSummary {
     return Workout(
       name: this.name,
       activity: this.activity,
+      units: this.units,
       description: this.description,
       start: this.start.orElse(() => some(DateTime.now())),
       end: this.end,

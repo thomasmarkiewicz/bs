@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 class ExerciseSet extends Equatable {
   final String exerciseId;
   final String exerciseName;
+  final int targetWeight;
   final List<Rep> sets;
 
   @override
@@ -14,6 +15,7 @@ class ExerciseSet extends Equatable {
   ExerciseSet({
     @required this.exerciseId,
     @required this.exerciseName,
+    @required this.targetWeight,
     @required this.sets,
   });
 
@@ -33,7 +35,6 @@ class ExerciseSet extends Equatable {
             Rep(
               targetReps: rep.targetReps,
               targetRest: rep.targetRest,
-              targetWeight: rep.targetWeight,
               reps: reps,
             ),
           );
@@ -44,6 +45,7 @@ class ExerciseSet extends Equatable {
     return ExerciseSet(
       exerciseId: this.exerciseId,
       exerciseName: this.exerciseName,
+      targetWeight: this.targetWeight,
       sets: updatedSets,
     );
   }

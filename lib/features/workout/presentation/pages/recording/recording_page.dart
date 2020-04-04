@@ -58,6 +58,7 @@ class RecordingPage extends StatelessWidget {
             itemCount: workout.supersets.length,
             itemBuilder: (BuildContext context, int index) {
               return SupersetTile(
+                units: workout.units,
                 superset: workout.supersets[index],
                 onExerciseSetRepPressed: (exerciseSetIndex, repIndex) {
                   BlocProvider.of<RecordingBloc>(context).add(
