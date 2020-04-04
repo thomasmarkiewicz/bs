@@ -12,5 +12,4 @@ A secondary goal is to place YOU in control of your data.  The data should be st
 
 Another major goal is to create a workout-tracking app that doesn't track YOU.  It should not require any info about you to work or force you to create accounts if you don't want to.  You should have the option to share your data, but only if you explicitly choose to do so. 
 
-And of course the app needs to be beautiful, easy to use, and practical.
-
+And of course the app needs to be beautiful, easy to use, and practical and help you to focus on working out and sculpting your body ;)
