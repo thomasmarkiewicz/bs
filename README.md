@@ -1,6 +1,8 @@
 # Body Sculpting
 
-My hope is that one day this free and open-source mobile app will become a viable alternative for keeping track of all of your workouts.  I would love for it to be capable of keeping track of the following activities:
+My hope is that one day this free and open-source mobile app will become a viable alternative for keeping track of all of your workouts. You can help to make this a reality by sponsoring this development on github (find the `Sponsor` button on [here](https://github.com/thomasmarkiewicz/bodysculpting)).  
+
+I would love for it to be capable of keeping track of the following activities:
 
 - many different **weight lifting** programs
 - triathlon (**swimming, biking, running**)
