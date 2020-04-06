@@ -475,9 +475,16 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
   }
 
   @override
-  Future<WorkoutModel> deleteWorkout({DateTime start, Option<DateTime> end}) {
-    // TODO: implement deleteWorkout
-    return null;
+  Future<WorkoutModel> deleteWorkout({DateTime start, DateTime end}) async {
+    final finishedFile = await _finishedWorkoutFile(start);
+    if (await finishedFile.exists()) {
+      String contents = await finishedFile.readAsString();
+      final workout = Future.value(WorkoutModel.fromJson(jsonDecode(contents)));
+      await finishedFile.delete();
+      return workout;
+    } else {
+      throw FileSystemException(); // workout to be deleted doesn't exit
+    }
   }
 
   @override

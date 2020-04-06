@@ -15,4 +15,8 @@ abstract class AbstractWorkoutLocalDataSource {
     @required DateTime start,
     @required Option<DateTime> end,
   });
+  Future<Workout> deleteWorkout({
+    @required DateTime start,
+    @required DateTime end,
+  });
 }

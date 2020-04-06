@@ -44,3 +44,21 @@ class Finished extends RecordingState {
 
   Finished(this.workout);
 }
+
+class Archived extends RecordingState {
+  final Workout workout;
+
+  @override
+  List<Object> get props => [workout];
+
+  Archived(this.workout);
+}
+
+class Deleted extends RecordingState {
+  final Workout workout;
+
+  @override
+  List<Object> get props => [workout];
+
+  Deleted(this.workout);
+}

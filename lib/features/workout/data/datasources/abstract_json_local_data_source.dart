@@ -17,7 +17,7 @@ abstract class AbstractJsonLocalDataSource {
   });
   Future<WorkoutModel> deleteWorkout({
     @required DateTime start,
-    @required Option<DateTime> end,
+    @required DateTime end,
   });
   Future<bool> workoutExists({@required DateTime start});
   Future<List<WorkoutSummaryModel>> readWorkoutSummaries({

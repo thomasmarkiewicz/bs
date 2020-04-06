@@ -47,3 +47,8 @@ class WorkoutFinished extends RecordingEvent {
   @override
   List<Object> get props => null;
 }
+
+class WorkoutDeleted extends RecordingEvent {
+  @override
+  List<Object> get props => null;
+}

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:bodysculpting/features/workout/domain/entities/workout.dart';
 import 'package:bodysculpting/features/workout/domain/usecases/create_workout.dart';
+import 'package:bodysculpting/features/workout/domain/usecases/deleteWorkout.dart';
 import 'package:bodysculpting/features/workout/domain/usecases/finish_workout.dart';
 import 'package:bodysculpting/features/workout/domain/usecases/update_target_weight.dart';
 import 'package:bodysculpting/features/workout/domain/usecases/update_workout_reps.dart';
@@ -17,20 +18,24 @@ class RecordingBloc extends Bloc<RecordingEvent, RecordingState> {
   final UpdateWorkoutReps updateWorkoutReps;
   final FinishWorkout finishWorkout;
   final UpdateTargetWeight updateTargetWeight;
+  final DeleteWorkout deleteWorkout;
 
   RecordingBloc({
     @required CreateWorkout createWorkout,
     @required UpdateWorkoutReps updateWorkoutReps,
     @required FinishWorkout finishWorkout,
     @required UpdateTargetWeight updateTargetWeight,
+    @required DeleteWorkout deleteWorkout,
   })  : assert(createWorkout != null),
         assert(updateWorkoutReps != null),
         assert(finishWorkout != null),
         assert(updateTargetWeight != null),
+        assert(deleteWorkout != null),
         this.createWorkout = createWorkout,
         this.updateWorkoutReps = updateWorkoutReps,
         this.finishWorkout = finishWorkout,
-        this.updateTargetWeight = updateTargetWeight;
+        this.updateTargetWeight = updateTargetWeight,
+        this.deleteWorkout = deleteWorkout;
 
   @override
   RecordingState get initialState => Initial();
@@ -47,6 +52,8 @@ class RecordingBloc extends Bloc<RecordingEvent, RecordingState> {
       yield* _finishWorkout();
     } else if (event is TargetWeightChanged) {
       yield* _targetWeightChanged(event);
+    } else if (event is WorkoutDeleted) {
+      yield* _workoutDeleted();
     }
   }
 
@@ -59,6 +66,8 @@ class RecordingBloc extends Bloc<RecordingEvent, RecordingState> {
       // - retrieve previous workout and pre-populate target weights
       if (workout.isActive()) {
         yield Active(workout);
+      } else if (workout.isFinished()) {
+        yield Archived(workout);
       } else {
         yield Ready(workout);
       }
@@ -142,8 +151,7 @@ class RecordingBloc extends Bloc<RecordingEvent, RecordingState> {
     Workout workout,
     TargetWeightChanged event,
   ) async {
-    final updateResult =
-        await updateTargetWeight(TargetWeightParams(
+    final updateResult = await updateTargetWeight(TargetWeightParams(
       workout: workout,
       supersetIndex: event.supersetIndex,
       exerciseSetIndex: event.exerciseSetIndex,
@@ -153,5 +161,17 @@ class RecordingBloc extends Bloc<RecordingEvent, RecordingState> {
       (failure) => Active(workout), // TODO: indicate failure somehow
       (workout) => Active(workout),
     );
+  }
+
+  Stream<RecordingState> _workoutDeleted() async* {
+    final state = this.state;
+    if (state is Archived) {
+      final result =
+          await deleteWorkout(DeleteWorkoutParams(workout: state.workout));
+      yield result.fold(
+        (failure) => state, // TODO: indicate failure somehow
+        (workout) => Deleted(workout),
+      );
+    }
   }
 }

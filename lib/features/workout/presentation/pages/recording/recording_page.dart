@@ -36,7 +36,11 @@ class RecordingPage extends StatelessWidget {
         } else if (state is Updating) {
           return _buildSupersetsView(context: context, workout: state.workout);
         } else if (state is Finished) {
-          //return _buildSupersetsView(context: context, workout: state.workout);
+          Navigator.pop(context);
+          return _buildSupersetsView(context: context, workout: state.workout);
+        } else if (state is Archived) {
+          return _buildSupersetsView(context: context, workout: state.workout);
+        } else if (state is Deleted) {
           Navigator.pop(context);
           return _buildSupersetsView(context: context, workout: state.workout);
         } else {
@@ -92,8 +96,52 @@ class RecordingPage extends StatelessWidget {
               },
             ),
           ),
+          Visibility(
+            visible: workout.isFinished(),
+            child: FlatButton(
+              child: Text('Delete'),
+              onPressed: () => _showConfirmDeleteDialog(context),
+            ),
+          ),
         ],
       ),
+    );
+  }
+
+  _showConfirmDeleteDialog(BuildContext context) {
+    final outerContext = context;
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Delete this workout?'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('You will loose it, forever!'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('Keep'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            FlatButton(
+              child: Text('Delete'),
+              onPressed: () {
+                Navigator.of(context).pop();
+                BlocProvider.of<RecordingBloc>(outerContext).add(
+                  WorkoutDeleted(),
+                );
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

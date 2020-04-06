@@ -16,5 +16,8 @@ abstract class AbstractWorkoutRepository {
   });
   Future<Either<Failure, Workout>> createWorkout(Workout workout);
   Future<Either<Failure, Workout>> updateWorkout(Workout workout);
-  Future<Either<Failure, Workout>> deleteWorkout(Workout workout);
+  Future<Either<Failure, Workout>> deleteWorkout({
+    @required DateTime start,
+    @required DateTime end,
+  });
 }

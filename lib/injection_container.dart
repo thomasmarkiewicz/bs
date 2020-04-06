@@ -13,6 +13,7 @@ import 'features/workout/data/repositories/workout_repository.dart';
 import 'features/workout/domain/repositories/abstract_workout_repository.dart';
 import 'features/workout/domain/repositories/abstract_workout_template_repository.dart';
 import 'features/workout/domain/usecases/create_workout.dart';
+import 'features/workout/domain/usecases/deleteWorkout.dart';
 import 'features/workout/domain/usecases/get_workout.dart';
 import 'features/workout/domain/usecases/get_workout_templates.dart';
 import 'features/workout/domain/usecases/update_target_weight.dart';
@@ -50,6 +51,7 @@ Future<void> blocs() async {
         updateWorkoutReps: sl(),
         finishWorkout: sl(),
         updateTargetWeight: sl(),
+        deleteWorkout: sl(),
       ));
 }
 
@@ -62,6 +64,7 @@ Future<void> usecases() async {
   sl.registerLazySingleton(() => GetWorkoutSummaries(sl()));
   sl.registerLazySingleton(() => GetWorkout(sl()));
   sl.registerLazySingleton(() => UpdateTargetWeight(sl()));
+  sl.registerLazySingleton(() => DeleteWorkout(sl()));
 }
 
 // Singletons

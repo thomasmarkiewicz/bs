@@ -74,4 +74,20 @@ class WorkoutLocalDataSource implements AbstractWorkoutLocalDataSource {
       throw CacheException();
     }
   }
+
+  @override
+  Future<WorkoutModel> deleteWorkout({
+    DateTime start,
+    DateTime end,
+  }) async {
+    try {
+      final workout = await jsonLocalDataSource.deleteWorkout(
+        start: start,
+        end: end,
+      );
+      return workout;
+    } on FileSystemException {
+      throw CacheException();
+    }
+  }
 }
