@@ -5,7 +5,6 @@ import 'package:bodysculpting/features/workout/data/models/exercise_set_model.da
 import 'package:bodysculpting/features/workout/data/models/rep_model.dart';
 import 'package:bodysculpting/features/workout/data/models/workout_model.dart';
 import 'package:bodysculpting/features/workout/data/repositories/workout_repository.dart';
-import 'package:bodysculpting/features/workout/domain/entities/workout_base.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -24,7 +23,7 @@ void main() {
 
   final testWorkout = WorkoutModel(
     activity: Activity.lift,
-    name: 'StrongLifts 3x10 A',
+    name: 'Barbbell Lifts 3x10 A',
     description: some('Squat, Bench, Press'),
     start: some(DateTime(2020, 4, 25, 17, 30, 00)),
     end: some(DateTime(2020, 4, 25, 18, 00, 00)),

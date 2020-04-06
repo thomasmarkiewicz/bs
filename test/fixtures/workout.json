@@ -1,44 +1,53 @@
 {
-	"activity": "lift",
-	"name": "StrongLifts 3x10 A",
-    "description": "Squat, Bench, Press",
-    "start": "2020-04-25T17:30:00",
-    "end": "2020-04-25T18:30:00",
-    "summary": "Optional summary",
-	"supersets": [
-		[
-			{
-				"exercise_id": "1",
-				"exercise_name": "Squats",
-				"sets": [
-                    { "target_reps": 10, "target_rest": 180, "target_weight": 135, "reps": 10, "weight": 135 },
-                    { "target_reps": 10, "target_rest": 180, "target_weight": 135, "reps": 10, "weight": 135 },
-                    { "target_reps": 10, "target_rest": 180, "target_weight": 135, "reps": 10, "weight": 135 }
-				]
-			}
-		],
-		[
-			{
-				"exercise_id": "1",
-				"exercise_name": "Squats",
-				"sets": [
-                    { "target_reps": 10, "target_rest": 180, "target_weight": 135, "reps": 9, "weight": 135 },
-                    { "target_reps": 10, "target_rest": 180, "target_weight": 135, "reps": 9, "weight": 135 },
-                    { "target_reps": 10, "target_rest": 180, "target_weight": 135, "reps": 8, "weight": 130 }
-				]
-			},
-			{
-				"exercise_id": "2",
-				"exercise_name": "Bench Press",
-				"sets": [
-                    { "target_reps": 10, "target_rest": 180, "target_weight": 135 },
-                    { "target_reps": 10, "target_rest": 180, "target_weight": 135 },
-                    { "target_reps": 10, "target_rest": 180, "target_weight": 135 }
-				]
-			}
-		]
-	]
+  "activity": "lift",
+  "name": "Barbbell Lifts 3x10 A",
+  "description": "Squat, Bench, Press",
+  "start": "2020-04-25T17:30:00",
+  "end": "2020-04-25T18:30:00",
+  "summary": "Optional summary",
+  "supersets": [
+    [
+      {
+        "exercise_id": "1",
+        "exercise_name": "Squats",
+        "sets": [
+          {
+            "target_reps": 10,
+            "target_rest": 180,
+            "target_weight": 135,
+            "reps": 10,
+            "weight": 135
+          },
+          {
+            "target_reps": 10,
+            "target_rest": 180,
+            "target_weight": 135,
+            "reps": 10,
+            "weight": 135
+          },
+          { "target_reps": 10, "target_rest": 180, "target_weight": 135, "reps": 10, "weight": 135 }
+        ]
+      }
+    ],
+    [
+      {
+        "exercise_id": "1",
+        "exercise_name": "Squats",
+        "sets": [
+          { "target_reps": 10, "target_rest": 180, "target_weight": 135, "reps": 9, "weight": 135 },
+          { "target_reps": 10, "target_rest": 180, "target_weight": 135, "reps": 9, "weight": 135 },
+          { "target_reps": 10, "target_rest": 180, "target_weight": 135, "reps": 8, "weight": 130 }
+        ]
+      },
+      {
+        "exercise_id": "2",
+        "exercise_name": "Bench Press",
+        "sets": [
+          { "target_reps": 10, "target_rest": 180, "target_weight": 135 },
+          { "target_reps": 10, "target_rest": 180, "target_weight": 135 },
+          { "target_reps": 10, "target_rest": 180, "target_weight": 135 }
+        ]
+      }
+    ]
+  ]
 }
-
-
-

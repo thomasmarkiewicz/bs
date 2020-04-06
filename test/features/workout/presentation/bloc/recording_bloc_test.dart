@@ -22,7 +22,7 @@ void main() {
 
   final testWorkout = Workout(
     activity: Activity.lift,
-    name: 'StrongLifts 3x10 A',
+    name: 'Barbbell Lifts 3x10 A',
     description: some('Squat, Bench, Press'),
     start: some(DateTime(2020, 4, 25, 17, 30, 00)),
     end: some(DateTime(2020, 4, 25, 18, 00, 00)),
@@ -150,7 +150,6 @@ void main() {
       ],
       */
       verify: (RecordingBloc bloc) {
-
         /*
         expect(
           some(9),

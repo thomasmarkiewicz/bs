@@ -30,7 +30,7 @@ void main() {
     final testTemplates = [
       Workout(
           activity: Activity.lift,
-          name: "StrongLifts 5x5 A",
+          name: "Barbbell Lifts 5x5 A",
           description: some("Squat, Bench, Deadlift"),
           supersets: [
             [
@@ -44,7 +44,7 @@ void main() {
           ]),
       Workout(
           activity: Activity.lift,
-          name: "StrongLifts 5x5 B",
+          name: "Barbbell Lifts 5x5 B",
           description: some("Squat, Shoulder Press, Rows"),
           supersets: [
             [

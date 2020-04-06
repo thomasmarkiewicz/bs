@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     primaryColor: Colors.grey.shade800,
     accentColor: Colors.redAccent,
     accentColorBrightness: Brightness.light,
-    disabledColor: Colors.grey.shade100,
+    disabledColor: Colors.grey.shade300,
     //canvasColor: Colors.indigo.shade50,
     // cardColor:
     // disabledColor:

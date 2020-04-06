@@ -6,7 +6,6 @@ import 'package:bodysculpting/features/workout/data/models/exercise_model.dart';
 import 'package:bodysculpting/features/workout/data/models/exercise_set_model.dart';
 import 'package:bodysculpting/features/workout/data/models/rep_model.dart';
 import 'package:bodysculpting/features/workout/data/models/workout_model.dart';
-import 'package:bodysculpting/features/workout/domain/entities/workout_base.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -19,7 +18,7 @@ void main() {
 
   final testWorkoutFinished = WorkoutModel(
     activity: Activity.lift,
-    name: 'StrongLifts 3x10 A',
+    name: 'Barbbell Lifts 3x10 A',
     description: some('Squat, Bench, Press'),
     start: some(DateTime(2020, 4, 25, 17, 30, 00)),
     end: some(DateTime(2020, 4, 25, 18, 00, 00)),
@@ -152,7 +151,7 @@ void main() {
         () async {
       await jsonLocalDataSource.writeWorkout(testWorkoutFinished);
       final result = await jsonLocalDataSource.readWorkout(
-        start: testWorkoutFinished.start.getOrElse(()=>DateTime.now()),
+        start: testWorkoutFinished.start.getOrElse(() => DateTime.now()),
         end: testWorkoutFinished.end,
       );
       expect(result, testWorkoutFinished);
@@ -162,7 +161,7 @@ void main() {
         () async {
       await jsonLocalDataSource.writeWorkout(testWorkoutActive);
       final result = await jsonLocalDataSource.readWorkout(
-        start: testWorkoutActive.start.getOrElse(()=>DateTime.now()),
+        start: testWorkoutActive.start.getOrElse(() => DateTime.now()),
         end: testWorkoutActive.end,
       );
       expect(result, testWorkoutActive);
@@ -185,11 +184,10 @@ void main() {
       await jsonLocalDataSource.writeWorkout(testUpdatedWorkoutActive);
 
       final result = await jsonLocalDataSource.readWorkout(
-        start: testWorkoutActive.start.getOrElse(()=>DateTime.now()),
+        start: testWorkoutActive.start.getOrElse(() => DateTime.now()),
         end: testWorkoutActive.end,
       );
       expect(result, testUpdatedWorkoutActive);
     });
-
   });
 }

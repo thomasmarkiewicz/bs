@@ -38,7 +38,7 @@ void main() {
       workoutTemplates: [
         WorkoutModel(
             activity: Activity.lift,
-            name: "StrongLifts 5x5 A",
+            name: "Barbbell Lifts 5x5 A",
             description: some("Squat, Bench, Deadlift"),
             supersets: [
               [
@@ -46,10 +46,14 @@ void main() {
                     exerciseId: "0537cd19644c",
                     exerciseName: "Squats",
                     sets: [
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
                       RepModel(targetReps: 5, targetWeight: 45, targetRest: 180)
                     ])
               ],
@@ -58,10 +62,14 @@ void main() {
                     exerciseId: "33871bf6de60",
                     exerciseName: "Bench Press",
                     sets: [
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
                       RepModel(targetReps: 5, targetWeight: 45, targetRest: 180)
                     ])
               ],
@@ -69,12 +77,14 @@ void main() {
                 ExerciseSetModel(
                     exerciseId: "ca1240b16dab",
                     exerciseName: "Deadlifts",
-                    sets: [RepModel(targetReps: 5, targetWeight: 45, targetRest: 180)])
+                    sets: [
+                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180)
+                    ])
               ]
             ]),
         WorkoutModel(
             activity: Activity.bike,
-            name: "StrongLifts 5x5 B",
+            name: "Barbbell Lifts 5x5 B",
             description: some("Squat, Shoulder Press, Rows"),
             supersets: [
               [
@@ -82,10 +92,14 @@ void main() {
                     exerciseId: "0537cd19644c",
                     exerciseName: "Squats",
                     sets: [
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
                       RepModel(targetReps: 5, targetWeight: 45, targetRest: 180)
                     ])
               ],
@@ -94,10 +108,14 @@ void main() {
                     exerciseId: "7eef10e8aaed",
                     exerciseName: "Shoulder Press",
                     sets: [
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
                       RepModel(targetReps: 5, targetWeight: 45, targetRest: 180)
                     ])
               ],
@@ -106,10 +124,14 @@ void main() {
                     exerciseId: "056672996981",
                     exerciseName: "Rows",
                     sets: [
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
-                      RepModel(targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
+                      RepModel(
+                          targetReps: 5, targetWeight: 45, targetRest: 180),
                       RepModel(targetReps: 5, targetWeight: 45, targetRest: 180)
                     ])
               ]
@@ -133,8 +155,7 @@ void main() {
           .thenAnswer((_) async => Future.value(testDocumentModel));
       final result = await localDataSource.getWorkoutTemplates(Activity.other);
       expect(result, isA<List<Workout>>());
-      expect(result.length, 0); 
+      expect(result.length, 0);
     });
-
   });
 }

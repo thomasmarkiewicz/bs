@@ -1,6 +1,6 @@
 {
-	"activity": "lift",
-	"name": "StrongLifts 3x10 A",
-	"description": "Squat, Bench, Press",
-	"supersets": []
+  "activity": "lift",
+  "name": "Barbbell Lifts 3x10 A",
+  "description": "Squat, Bench, Press",
+  "supersets": []
 }

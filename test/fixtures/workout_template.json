@@ -1,38 +1,38 @@
 {
-	"activity": "lift",
-	"name": "StrongLifts 3x10 A",
-	"description": "Squat, Bench, Press",
-	"supersets": [
-		[
-			{
-				"exercise_id": "1",
-				"exercise_name": "Squats",
-				"sets": [
-					{ "target_reps": 10, "target_rest": 0 },
-					{ "target_reps": 10, "target_rest": 0 },
-					{ "target_reps": 10, "target_rest": 0 }
-				]
-			}
-		],
-		[
-			{
-				"exercise_id": "1",
-				"exercise_name": "Squats",
-				"sets": [
-					{ "target_reps": 10, "target_rest": 0 },
-					{ "target_reps": 10, "target_rest": 0 },
-					{ "target_reps": 10, "target_rest": 0 }
-				]
-			},
-			{
-				"exercise_id": "2",
-				"exercise_name": "Bench Press",
-				"sets": [
-					{ "target_reps": 10, "target_rest": 180 },
-					{ "target_reps": 10, "target_rest": 180 },
-					{ "target_reps": 10, "target_rest": 180 }
-				]
-			}
-		]
-	]
+  "activity": "lift",
+  "name": "Barbbell Lifts 3x10 A",
+  "description": "Squat, Bench, Press",
+  "supersets": [
+    [
+      {
+        "exercise_id": "1",
+        "exercise_name": "Squats",
+        "sets": [
+          { "target_reps": 10, "target_rest": 0 },
+          { "target_reps": 10, "target_rest": 0 },
+          { "target_reps": 10, "target_rest": 0 }
+        ]
+      }
+    ],
+    [
+      {
+        "exercise_id": "1",
+        "exercise_name": "Squats",
+        "sets": [
+          { "target_reps": 10, "target_rest": 0 },
+          { "target_reps": 10, "target_rest": 0 },
+          { "target_reps": 10, "target_rest": 0 }
+        ]
+      },
+      {
+        "exercise_id": "2",
+        "exercise_name": "Bench Press",
+        "sets": [
+          { "target_reps": 10, "target_rest": 180 },
+          { "target_reps": 10, "target_rest": 180 },
+          { "target_reps": 10, "target_rest": 180 }
+        ]
+      }
+    ]
+  ]
 }

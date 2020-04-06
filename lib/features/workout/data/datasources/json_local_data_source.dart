@@ -46,14 +46,14 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
         version: "0.0.1",
         syncCounter: 0,
         exercises: [
-          // StrongLifts
+          // Basic barbell exercises
           ExerciseModel(id: "0537cd19644c", name: "Squats"),
           ExerciseModel(id: "33871bf6de60", name: "Bench Press"),
           ExerciseModel(id: "7eef10e8aaed", name: "Shoulder Press"),
           ExerciseModel(id: "056672996981", name: "Rows"),
           ExerciseModel(id: "ca1240b16dab", name: "Deadlifts"),
 
-          // Body Sculpting
+          // Dumbbell exercises
           ExerciseModel(id: "3e904e0972c4", name: "Dumbbell Rows (one arm)"),
           ExerciseModel(id: "490d6d0ec5f0", name: "Dumbbell Rows (two arms)"),
           ExerciseModel(id: "19b420dafb22", name: "Push-ups"),
@@ -79,7 +79,7 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
         workoutTemplates: [
           WorkoutModel(
             activity: Activity.lift,
-            name: "StrongLifts 5x5 A",
+            name: "5x5 Barbbell Lifts A",
             description: some("Squat, Bench, Deadlift"),
             units: UnitsModel(
               weight: "lb",
@@ -126,7 +126,7 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
           ),
           WorkoutModel(
             activity: Activity.lift,
-            name: "StrongLifts 5x5 B",
+            name: "5x5 Barbbell Lifts B",
             description: some("Squat, Shoulder Press, Rows"),
             units: UnitsModel(
               weight: "lb",
@@ -179,8 +179,98 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
           ),
           WorkoutModel(
             activity: Activity.lift,
-            name: "Body Sculpting - Break In #1 - A",
-            description: some("Dumbbell starting routine"),
+            name: "3x10 Barbbell Lifts A",
+            description: some("Squat, Bench, Deadlift"),
+            units: UnitsModel(
+              weight: "lb",
+              distance: "mi",
+            ),
+            supersets: [
+              [
+                ExerciseSetModel(
+                  exerciseId: "0537cd19644c",
+                  exerciseName: "Squats",
+                  targetWeight: 45,
+                  sets: [
+                    RepModel(targetReps: 10, targetRest: 180),
+                    RepModel(targetReps: 10, targetRest: 180),
+                    RepModel(targetReps: 10, targetRest: 180)
+                  ],
+                ),
+              ],
+              [
+                ExerciseSetModel(
+                  exerciseId: "33871bf6de60",
+                  exerciseName: "Bench Press",
+                  targetWeight: 45,
+                  sets: [
+                    RepModel(targetReps: 10, targetRest: 180),
+                    RepModel(targetReps: 10, targetRest: 180),
+                    RepModel(targetReps: 10, targetRest: 180)
+                  ],
+                ),
+              ],
+              [
+                ExerciseSetModel(
+                  exerciseId: "ca1240b16dab",
+                  exerciseName: "Deadlifts",
+                  targetWeight: 45,
+                  sets: [RepModel(targetReps: 10, targetRest: 180)],
+                ),
+              ],
+            ],
+          ),
+          WorkoutModel(
+            activity: Activity.lift,
+            name: "3x10 Barbbell Lifts B",
+            description: some("Squat, Shoulder Press, Rows"),
+            units: UnitsModel(
+              weight: "lb",
+              distance: "mi",
+            ),
+            supersets: [
+              [
+                ExerciseSetModel(
+                  exerciseId: "0537cd19644c",
+                  exerciseName: "Squats",
+                  targetWeight: 45,
+                  sets: [
+                    RepModel(targetReps: 10, targetRest: 180),
+                    RepModel(targetReps: 10, targetRest: 180),
+                    RepModel(targetReps: 10, targetRest: 180)
+                  ],
+                ),
+              ],
+              [
+                ExerciseSetModel(
+                  exerciseId: "7eef10e8aaed",
+                  exerciseName: "Shoulder Press",
+                  targetWeight: 45,
+                  sets: [
+                    RepModel(targetReps: 10, targetRest: 180),
+                    RepModel(targetReps: 10, targetRest: 180),
+                    RepModel(targetReps: 10, targetRest: 180)
+                  ],
+                ),
+              ],
+              [
+                ExerciseSetModel(
+                  exerciseId: "056672996981",
+                  exerciseName: "Rows",
+                  targetWeight: 45,
+                  sets: [
+                    RepModel(targetReps: 10, targetRest: 180),
+                    RepModel(targetReps: 10, targetRest: 180),
+                    RepModel(targetReps: 10, targetRest: 180)
+                  ],
+                ),
+              ],
+            ],
+          ),
+          WorkoutModel(
+            activity: Activity.lift,
+            name: "Dumbbell Supersets Break-In A",
+            description: some("Dumbbell supersets starting routine"),
             units: UnitsModel(
               weight: "lb",
               distance: "mi",
@@ -270,8 +360,8 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
           ),
           WorkoutModel(
             activity: Activity.lift,
-            name: "Body Sculpting #1",
-            description: some("Weeks 5 & 6 - Day 1"),
+            name: "Dumbbell Supersets A",
+            description: some("Day 1"),
             units: UnitsModel(
               weight: "lb",
               distance: "mi",

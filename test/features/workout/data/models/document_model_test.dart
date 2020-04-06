@@ -5,7 +5,6 @@ import 'package:bodysculpting/features/workout/data/models/exercise_model.dart';
 import 'package:bodysculpting/features/workout/data/models/exercise_set_model.dart';
 import 'package:bodysculpting/features/workout/data/models/rep_model.dart';
 import 'package:bodysculpting/features/workout/data/models/workout_model.dart';
-import 'package:bodysculpting/features/workout/domain/entities/workout_base.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -25,7 +24,7 @@ void main() {
     workoutTemplates: [
       WorkoutModel(
           activity: Activity.lift,
-          name: "StrongLifts 5x5 A",
+          name: "Barbbell Lifts 5x5 A",
           description: some("Squat, Bench, Deadlift"),
           supersets: [
             [
@@ -63,7 +62,7 @@ void main() {
           ]),
       WorkoutModel(
           activity: Activity.lift,
-          name: "StrongLifts 5x5 B",
+          name: "Barbbell Lifts 5x5 B",
           description: some("Squat, Shoulder Press, Rows"),
           supersets: [
             [
@@ -131,7 +130,7 @@ void main() {
         "workout_templates": [
           {
             "activity": "lift",
-            "name": "StrongLifts 5x5 A",
+            "name": "Barbbell Lifts 5x5 A",
             "description": "Squat, Bench, Deadlift",
             "supersets": [
               [
@@ -173,7 +172,7 @@ void main() {
           },
           {
             "activity": "lift",
-            "name": "StrongLifts 5x5 B",
+            "name": "Barbbell Lifts 5x5 B",
             "description": "Squat, Shoulder Press, Rows",
             "supersets": [
               [

@@ -21,7 +21,7 @@ void main() {
   final tActivity = Activity.lift;
   final tWorkoutTemplates = [
     Workout(
-      name: 'StrongLifts 3x10 A',
+      name: 'Barbbell Lifts 3x10 A',
       activity: Activity.lift,
       description: some('Squat, bench, deadlift'),
       supersets: null,
@@ -32,7 +32,7 @@ void main() {
     // setup
     when(mockRepository.getWorkoutTemplates(any))
         .thenAnswer((_) async => Right(tWorkoutTemplates));
-    
+
     // test
     final result = await getWorkoutTemplates(Params(activity: tActivity));
 
@@ -40,6 +40,5 @@ void main() {
     expect(result, Right(tWorkoutTemplates));
     verify(mockRepository.getWorkoutTemplates(tActivity));
     verifyNoMoreInteractions(mockRepository);
-
   });
 }

@@ -24,7 +24,7 @@ void main() {
     end: none(),
     summary: none(),
     activity: Activity.lift,
-    name: 'StrongLifts 3x10 A',
+    name: 'Barbbell Lifts 3x10 A',
     description: some('Squat, bench, deadlift'),
     supersets: [
       [

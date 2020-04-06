@@ -111,7 +111,7 @@ class WorkoutPage extends StatelessWidget {
           ),
           Visibility(
             visible: summaries.length == 0,
-            child: Text("It's loneyly here, please add some workouts!!!"),
+            child: Text("It's lonely here, please add some workouts!!!"),
           ),
         ],
       ),
