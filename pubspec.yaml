@@ -11,7 +11,23 @@ description: Lift, swim, bike, run - sculpt your body and stay healthy.
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+
+# Version name:
+#
+# MAJOR.MINOR.PATCH
+#
+# * increment `MAJOR` when minimum OS version requirements change
+# * increment `MINOR` when significan new features are added
+# * increment `PATCH` when bugs get fixed or for other insignificant small changes
+#
+# Build number:
+#
+# (major * 1000000) + (minor * 10000) + (patch * 100) + candidate;
+#
+# where candidate will usually remain at 00 but could increase if same semver
+# needs to get uploaded to Google again for some reason.
+#
+version: 0.0.1+00000100
 
 environment:
   sdk: '>=2.1.0 <3.0.0'
