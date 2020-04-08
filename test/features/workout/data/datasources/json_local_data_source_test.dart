@@ -1,11 +1,12 @@
 import 'dart:io';
-
 import 'package:bodysculpting/features/workout/data/datasources/json_local_data_source.dart';
 import 'package:bodysculpting/features/workout/data/models/document_model.dart';
 import 'package:bodysculpting/features/workout/data/models/exercise_model.dart';
 import 'package:bodysculpting/features/workout/data/models/exercise_set_model.dart';
-import 'package:bodysculpting/features/workout/data/models/rep_model.dart';
+import 'package:bodysculpting/features/workout/data/models/set_model.dart';
+import 'package:bodysculpting/features/workout/data/models/units_model.dart';
 import 'package:bodysculpting/features/workout/data/models/workout_model.dart';
+import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -20,76 +21,80 @@ void main() {
     activity: Activity.lift,
     name: 'Barbbell Lifts 3x10 A',
     description: some('Squat, Bench, Press'),
+    units: UnitsModel(weight: "lb", distance: "km"),
     start: some(DateTime(2020, 4, 25, 17, 30, 00)),
     end: some(DateTime(2020, 4, 25, 18, 00, 00)),
     summary: some("Optional summary"),
     supersets: [
       [
-        ExerciseSetModel(exerciseId: '1', exerciseName: 'Squats', sets: [
-          RepModel(
-              targetReps: 10,
-              targetRest: 180,
-              targetWeight: 135,
-              reps: some(10),
-              weight: some(135)),
-          RepModel(
-              targetReps: 10,
-              targetRest: 180,
-              targetWeight: 135,
-              reps: some(10),
-              weight: some(135)),
-          RepModel(
-              targetReps: 10,
-              targetRest: 180,
-              targetWeight: 135,
-              reps: some(10),
-              weight: some(135)),
-        ])
+        ExerciseSetModel(
+            exerciseId: '1',
+            exerciseName: 'Squats',
+            targetWeight: 135,
+            sets: [
+              SetModel(
+                  targetReps: 10,
+                  targetRest: 180,
+                  reps: some(10),
+                  weight: some(135)),
+              SetModel(
+                  targetReps: 10,
+                  targetRest: 180,
+                  reps: some(10),
+                  weight: some(135)),
+              SetModel(
+                  targetReps: 10,
+                  targetRest: 180,
+                  reps: some(10),
+                  weight: some(135)),
+            ])
       ],
       [
-        ExerciseSetModel(exerciseId: '1', exerciseName: 'Squats', sets: [
-          RepModel(
-              targetReps: 10,
-              targetRest: 180,
-              targetWeight: 135,
-              reps: some(9),
-              weight: some(135)),
-          RepModel(
-              targetReps: 10,
-              targetRest: 180,
-              targetWeight: 135,
-              reps: some(9),
-              weight: some(135)),
-          RepModel(
-              targetReps: 10,
-              targetRest: 180,
-              targetWeight: 135,
-              reps: some(8),
-              weight: some(130)),
-        ]),
-        ExerciseSetModel(exerciseId: '2', exerciseName: 'Bench Press', sets: [
-          RepModel(
-            targetReps: 10,
-            targetRest: 180,
+        ExerciseSetModel(
+            exerciseId: '1',
+            exerciseName: 'Squats',
             targetWeight: 135,
-            reps: none(),
-            weight: none(),
-          ),
-          RepModel(
-            targetReps: 10,
-            targetRest: 180,
+            sets: [
+              SetModel(
+                  targetReps: 10,
+                  targetRest: 180,
+                  reps: some(9),
+                  weight: some(135)),
+              SetModel(
+                  targetReps: 10,
+                  targetRest: 180,
+                  reps: some(9),
+                  weight: some(135)),
+              SetModel(
+                  targetReps: 10,
+                  targetRest: 180,
+                  reps: some(8),
+                  weight: some(130)),
+            ]),
+        ExerciseSetModel(
+            exerciseId: '2',
+            exerciseName: 'Bench Press',
             targetWeight: 135,
-            reps: none(),
-            weight: none(),
-          ),
-          RepModel(
-            targetReps: 10,
-            targetRest: 180,
-            targetWeight: 135,
-            reps: none(),
-            weight: none(),
-          ),
-        ]),
+            sets: [
+              SetModel(
+                targetReps: 10,
+                targetRest: 180,
+                reps: none(),
+                weight: none(),
+              ),
+              SetModel(
+                targetReps: 10,
+                targetRest: 180,
+                reps: none(),
+                weight: none(),
+              ),
+              SetModel(
+                targetReps: 10,
+                targetRest: 180,
+                reps: none(),
+                weight: none(),
+              ),
+            ]),
       ]
     ],
   );
@@ -98,6 +103,7 @@ void main() {
     name: testWorkoutFinished.name,
     activity: testWorkoutFinished.activity,
     start: testWorkoutFinished.start,
+    units: UnitsModel(weight: "lb", distance: "km"),
     end: none(),
     description: testWorkoutFinished.description,
     summary: testWorkoutFinished.summary,
@@ -177,6 +183,7 @@ void main() {
         start: testWorkoutActive.start,
         end: none(),
         description: testWorkoutActive.description,
+        units: UnitsModel(weight: "lb", distance: "km"),
         summary: some("This is some different summary changed from original"),
         supersets: testWorkoutActive.supersets,
       );

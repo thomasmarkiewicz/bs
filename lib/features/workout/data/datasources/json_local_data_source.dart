@@ -5,7 +5,7 @@ import 'package:bodysculpting/features/workout/data/datasources/abstract_json_lo
 import 'package:bodysculpting/features/workout/data/models/document_model.dart';
 import 'package:bodysculpting/features/workout/data/models/exercise_model.dart';
 import 'package:bodysculpting/features/workout/data/models/exercise_set_model.dart';
-import 'package:bodysculpting/features/workout/data/models/rep_model.dart';
+import 'package:bodysculpting/features/workout/data/models/set_model.dart';
 import 'package:bodysculpting/features/workout/data/models/units_model.dart';
 import 'package:bodysculpting/features/workout/data/models/workout_model.dart';
 import 'package:bodysculpting/features/workout/data/models/workout_summary_model.dart';
@@ -92,11 +92,11 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Squats",
                   targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180)
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180)
                   ],
                 ),
               ],
@@ -106,11 +106,11 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Bench Press",
                   targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180)
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180)
                   ],
                 ),
               ],
@@ -119,7 +119,7 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseId: "ca1240b16dab",
                   exerciseName: "Deadlifts",
                   targetWeight: 45,
-                  sets: [RepModel(targetReps: 5, targetRest: 180)],
+                  sets: [SetModel(targetReps: 5, targetRest: 180)],
                 ),
               ],
             ],
@@ -139,11 +139,11 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Squats",
                   targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
                   ],
                 ),
               ],
@@ -153,11 +153,11 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Shoulder Press",
                   targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180)
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180)
                   ],
                 ),
               ],
@@ -167,11 +167,11 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Rows",
                   targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180),
-                    RepModel(targetReps: 5, targetRest: 180)
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180)
                   ],
                 ),
               ],
@@ -192,9 +192,9 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Squats",
                   targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 10, targetRest: 180),
-                    RepModel(targetReps: 10, targetRest: 180),
-                    RepModel(targetReps: 10, targetRest: 180)
+                    SetModel(targetReps: 10, targetRest: 180),
+                    SetModel(targetReps: 10, targetRest: 180),
+                    SetModel(targetReps: 10, targetRest: 180)
                   ],
                 ),
               ],
@@ -204,9 +204,9 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Bench Press",
                   targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 10, targetRest: 180),
-                    RepModel(targetReps: 10, targetRest: 180),
-                    RepModel(targetReps: 10, targetRest: 180)
+                    SetModel(targetReps: 10, targetRest: 180),
+                    SetModel(targetReps: 10, targetRest: 180),
+                    SetModel(targetReps: 10, targetRest: 180)
                   ],
                 ),
               ],
@@ -215,7 +215,7 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseId: "ca1240b16dab",
                   exerciseName: "Deadlifts",
                   targetWeight: 45,
-                  sets: [RepModel(targetReps: 10, targetRest: 180)],
+                  sets: [SetModel(targetReps: 10, targetRest: 180)],
                 ),
               ],
             ],
@@ -235,9 +235,9 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Squats",
                   targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 10, targetRest: 180),
-                    RepModel(targetReps: 10, targetRest: 180),
-                    RepModel(targetReps: 10, targetRest: 180)
+                    SetModel(targetReps: 10, targetRest: 180),
+                    SetModel(targetReps: 10, targetRest: 180),
+                    SetModel(targetReps: 10, targetRest: 180)
                   ],
                 ),
               ],
@@ -247,9 +247,9 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Shoulder Press",
                   targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 10, targetRest: 180),
-                    RepModel(targetReps: 10, targetRest: 180),
-                    RepModel(targetReps: 10, targetRest: 180)
+                    SetModel(targetReps: 10, targetRest: 180),
+                    SetModel(targetReps: 10, targetRest: 180),
+                    SetModel(targetReps: 10, targetRest: 180)
                   ],
                 ),
               ],
@@ -259,9 +259,9 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Rows",
                   targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 10, targetRest: 180),
-                    RepModel(targetReps: 10, targetRest: 180),
-                    RepModel(targetReps: 10, targetRest: 180)
+                    SetModel(targetReps: 10, targetRest: 180),
+                    SetModel(targetReps: 10, targetRest: 180),
+                    SetModel(targetReps: 10, targetRest: 180)
                   ],
                 ),
               ],
@@ -282,8 +282,8 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Dumbbell Rows (one arm)",
                   targetWeight: 20,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90),
-                    RepModel(targetReps: 15, targetRest: 90),
+                    SetModel(targetReps: 15, targetRest: 90),
+                    SetModel(targetReps: 15, targetRest: 90),
                   ],
                 ),
                 ExerciseSetModel(
@@ -291,8 +291,8 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Push-ups",
                   targetWeight: 0,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 9),
-                    RepModel(targetReps: 15, targetRest: 9),
+                    SetModel(targetReps: 15, targetRest: 9),
+                    SetModel(targetReps: 15, targetRest: 9),
                   ],
                 ),
               ],
@@ -302,8 +302,8 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Dumbbell Rows (two arms)",
                   targetWeight: 20,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90),
-                    RepModel(targetReps: 15, targetRest: 90),
+                    SetModel(targetReps: 15, targetRest: 90),
+                    SetModel(targetReps: 15, targetRest: 90),
                   ],
                 ),
                 ExerciseSetModel(
@@ -311,8 +311,8 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Dumbbell Flys (flat)",
                   targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90),
-                    RepModel(targetReps: 15, targetRest: 90),
+                    SetModel(targetReps: 15, targetRest: 90),
+                    SetModel(targetReps: 15, targetRest: 90),
                   ],
                 ),
               ],
@@ -322,8 +322,8 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Dumbbell Curls",
                   targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90),
-                    RepModel(targetReps: 15, targetRest: 90),
+                    SetModel(targetReps: 15, targetRest: 90),
+                    SetModel(targetReps: 15, targetRest: 90),
                   ],
                 ),
                 ExerciseSetModel(
@@ -331,8 +331,8 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Dumbbell Extensions (lying)",
                   targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90),
-                    RepModel(targetReps: 15, targetRest: 90),
+                    SetModel(targetReps: 15, targetRest: 90),
+                    SetModel(targetReps: 15, targetRest: 90),
                   ],
                 ),
               ],
@@ -342,8 +342,8 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Dumbbell Hammer Curls",
                   targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90),
-                    RepModel(targetReps: 15, targetRest: 90),
+                    SetModel(targetReps: 15, targetRest: 90),
+                    SetModel(targetReps: 15, targetRest: 90),
                   ],
                 ),
                 ExerciseSetModel(
@@ -351,8 +351,8 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Dumbbell Extensions (overhead)",
                   targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 15, targetRest: 90),
-                    RepModel(targetReps: 15, targetRest: 90),
+                    SetModel(targetReps: 15, targetRest: 90),
+                    SetModel(targetReps: 15, targetRest: 90),
                   ],
                 ),
               ],
@@ -373,10 +373,10 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Dumbbell Rows (one arm)",
                   targetWeight: 20,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
                   ],
                 ),
                 ExerciseSetModel(
@@ -384,10 +384,10 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Push-ups",
                   targetWeight: 0,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
                   ],
                 ),
                 ExerciseSetModel(
@@ -395,10 +395,10 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Dumbbell Rows (two arms)",
                   targetWeight: 20,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
                   ],
                 ),
                 ExerciseSetModel(
@@ -406,10 +406,10 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Dumbbell Flys (flat)",
                   targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 60),
-                    RepModel(targetReps: 8, targetRest: 60),
-                    RepModel(targetReps: 8, targetRest: 60),
-                    RepModel(targetReps: 8, targetRest: 60),
+                    SetModel(targetReps: 8, targetRest: 60),
+                    SetModel(targetReps: 8, targetRest: 60),
+                    SetModel(targetReps: 8, targetRest: 60),
+                    SetModel(targetReps: 8, targetRest: 60),
                   ],
                 ),
               ],
@@ -419,10 +419,10 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Dumbbell Curls",
                   targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
                   ],
                 ),
                 ExerciseSetModel(
@@ -430,10 +430,10 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Dumbbell Extensions (lying)",
                   targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
                   ],
                 ),
                 ExerciseSetModel(
@@ -441,10 +441,10 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Dumbbell Hammer Curls",
                   targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
-                    RepModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
+                    SetModel(targetReps: 8, targetRest: 0),
                   ],
                 ),
                 ExerciseSetModel(
@@ -452,10 +452,10 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
                   exerciseName: "Dumbbell Extensions (overhead)",
                   targetWeight: 10,
                   sets: [
-                    RepModel(targetReps: 8, targetRest: 60),
-                    RepModel(targetReps: 8, targetRest: 60),
-                    RepModel(targetReps: 8, targetRest: 60),
-                    RepModel(targetReps: 8, targetRest: 60),
+                    SetModel(targetReps: 8, targetRest: 60),
+                    SetModel(targetReps: 8, targetRest: 60),
+                    SetModel(targetReps: 8, targetRest: 60),
+                    SetModel(targetReps: 8, targetRest: 60),
                   ],
                 ),
               ],

@@ -3,8 +3,10 @@ import 'dart:convert';
 import 'package:bodysculpting/features/workout/data/models/document_model.dart';
 import 'package:bodysculpting/features/workout/data/models/exercise_model.dart';
 import 'package:bodysculpting/features/workout/data/models/exercise_set_model.dart';
-import 'package:bodysculpting/features/workout/data/models/rep_model.dart';
+import 'package:bodysculpting/features/workout/data/models/set_model.dart';
+import 'package:bodysculpting/features/workout/data/models/units_model.dart';
 import 'package:bodysculpting/features/workout/data/models/workout_model.dart';
+import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -26,79 +28,85 @@ void main() {
           activity: Activity.lift,
           name: "Barbbell Lifts 5x5 A",
           description: some("Squat, Bench, Deadlift"),
+          units: UnitsModel(weight: 'lb', distance: 'mi'),
           supersets: [
             [
               ExerciseSetModel(
                   exerciseId: "0537cd19644c",
                   exerciseName: "Squats",
+                  targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45)
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180)
                   ])
             ],
             [
               ExerciseSetModel(
                   exerciseId: "33871bf6de60",
                   exerciseName: "Bench Press",
+                  targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45)
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180)
                   ])
             ],
             [
               ExerciseSetModel(
                   exerciseId: "ca1240b16dab",
                   exerciseName: "Deadlifts",
-                  sets: [
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45)
-                  ])
+                  targetWeight: 45,
+                  sets: [SetModel(targetReps: 5, targetRest: 180)])
             ]
           ]),
       WorkoutModel(
           activity: Activity.lift,
           name: "Barbbell Lifts 5x5 B",
           description: some("Squat, Shoulder Press, Rows"),
+          units: UnitsModel(weight: 'lb', distance: 'mi'),
           supersets: [
             [
               ExerciseSetModel(
                   exerciseId: "0537cd19644c",
                   exerciseName: "Squats",
+                  targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45)
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180)
                   ])
             ],
             [
               ExerciseSetModel(
                   exerciseId: "7eef10e8aaed",
                   exerciseName: "Shoulder Press",
+                  targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45)
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180)
                   ])
             ],
             [
               ExerciseSetModel(
                   exerciseId: "056672996981",
                   exerciseName: "Rows",
+                  targetWeight: 45,
                   sets: [
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45),
-                    RepModel(targetReps: 5, targetRest: 180, targetWeight: 45)
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180),
+                    SetModel(targetReps: 5, targetRest: 180)
                   ])
             ]
           ]),
@@ -132,17 +140,22 @@ void main() {
             "activity": "lift",
             "name": "Barbbell Lifts 5x5 A",
             "description": "Squat, Bench, Deadlift",
+            "units": {
+              "weight": "lb",
+              "distance": "mi"
+            },
             "supersets": [
               [
                 {
                   "exercise_id": "0537cd19644c",
                   "exercise_name": "Squats",
+                  "target_weight": 45,
                   "sets": [
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45}
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180}
                   ]
                 }
               ],
@@ -150,12 +163,13 @@ void main() {
                 {
                   "exercise_id": "33871bf6de60",
                   "exercise_name": "Bench Press",
+                  "target_weight": 45,
                   "sets": [
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45}
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180}
                   ]
                 }
               ],
@@ -163,8 +177,9 @@ void main() {
                 {
                   "exercise_id": "ca1240b16dab",
                   "exercise_name": "Deadlifts",
+                  "target_weight": 45,
                   "sets": [
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45}
+                    {"target_reps": 5, "target_rest": 180}
                   ]
                 }
               ]
@@ -174,17 +189,22 @@ void main() {
             "activity": "lift",
             "name": "Barbbell Lifts 5x5 B",
             "description": "Squat, Shoulder Press, Rows",
+            "units": {
+              "weight": "lb",
+              "distance": "mi"
+            },
             "supersets": [
               [
                 {
                   "exercise_id": "0537cd19644c",
                   "exercise_name": "Squats",
+                  "target_weight": 45,
                   "sets": [
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45}
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180}
                   ]
                 }
               ],
@@ -192,12 +212,13 @@ void main() {
                 {
                   "exercise_id": "7eef10e8aaed",
                   "exercise_name": "Shoulder Press",
+                  "target_weight": 45,
                   "sets": [
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45}
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180}
                   ]
                 }
               ],
@@ -205,12 +226,13 @@ void main() {
                 {
                   "exercise_id": "056672996981",
                   "exercise_name": "Rows",
+                  "target_weight": 45,
                   "sets": [
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45},
-                    {"target_reps": 5, "target_rest": 180, "target_weight": 45}
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180},
+                    {"target_reps": 5, "target_rest": 180}
                   ]
                 }
               ]

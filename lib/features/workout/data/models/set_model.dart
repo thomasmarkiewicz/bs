@@ -1,9 +1,9 @@
-import 'package:bodysculpting/features/workout/domain/entities/rep.dart';
+import 'package:bodysculpting/features/workout/domain/entities/set.dart';
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 
-class RepModel extends Rep {
-  RepModel({
+class SetModel extends Set {
+  SetModel({
     @required int targetReps,
     @required int targetRest,
     Option<int> reps,
@@ -15,8 +15,8 @@ class RepModel extends Rep {
           weight: weight,
         );
 
-  factory RepModel.from(Rep rep) {
-    return RepModel(
+  factory SetModel.from(Set rep) {
+    return SetModel(
       targetReps: rep.targetReps,
       targetRest: rep.targetRest,
       reps: rep.reps,
@@ -24,8 +24,8 @@ class RepModel extends Rep {
     );
   }
 
-  factory RepModel.fromJson(Map<String, dynamic> json) {
-    return RepModel(
+  factory SetModel.fromJson(Map<String, dynamic> json) {
+    return SetModel(
       targetReps: json['target_reps'],
       targetRest: json['target_rest'],
       reps: json.containsKey('reps') ? some(json['reps']) : none(),

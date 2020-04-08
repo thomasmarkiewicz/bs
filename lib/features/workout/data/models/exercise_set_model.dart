@@ -1,4 +1,4 @@
-import 'package:bodysculpting/features/workout/data/models/rep_model.dart';
+import 'package:bodysculpting/features/workout/data/models/set_model.dart';
 import 'package:bodysculpting/features/workout/domain/entities/exercise_set.dart';
 import 'package:meta/meta.dart';
 
@@ -9,7 +9,7 @@ class ExerciseSetModel extends ExerciseSet {
     @required String exerciseId,
     @required String exerciseName,
     @required int targetWeight,
-    @required List<RepModel> sets,
+    @required List<SetModel> sets,
   }) : super(
           exerciseId: exerciseId,
           exerciseName: exerciseName,
@@ -18,9 +18,9 @@ class ExerciseSetModel extends ExerciseSet {
         );
 
   factory ExerciseSetModel.from(ExerciseSet exerciseSet) {
-    List<RepModel> setList = exerciseSet.sets != null
-        ? exerciseSet.sets.map((s) => RepModel.from(s)).toList()
-        : List<RepModel>();
+    List<SetModel> setList = exerciseSet.sets != null
+        ? exerciseSet.sets.map((s) => SetModel.from(s)).toList()
+        : List<SetModel>();
 
     return ExerciseSetModel(
       exerciseId: exerciseSet.exerciseId,
@@ -32,9 +32,9 @@ class ExerciseSetModel extends ExerciseSet {
 
   factory ExerciseSetModel.fromJson(Map<String, dynamic> json) {
     final sets = json['sets'] as List;
-    List<RepModel> setList = sets != null
-        ? sets.map((s) => RepModel.fromJson(s)).toList()
-        : List<RepModel>();
+    List<SetModel> setList = sets != null
+        ? sets.map((s) => SetModel.fromJson(s)).toList()
+        : List<SetModel>();
 
     return ExerciseSetModel(
       exerciseId: json['exercise_id'],
@@ -46,7 +46,7 @@ class ExerciseSetModel extends ExerciseSet {
 
   Map<String, dynamic> toJson() {
     List<Map> sets = this.sets != null
-        ? this.sets.map((i) => (i as RepModel).toJson()).toList()
+        ? this.sets.map((i) => (i as SetModel).toJson()).toList()
         : null;
 
     return {
