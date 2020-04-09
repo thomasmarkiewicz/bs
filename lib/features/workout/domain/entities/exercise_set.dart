@@ -1,4 +1,4 @@
-import 'package:bodysculpting/features/workout/domain/entities/rep.dart';
+import 'package:bodysculpting/features/workout/domain/entities/set.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
@@ -7,7 +7,7 @@ class ExerciseSet extends Equatable {
   final String exerciseId;
   final String exerciseName;
   final int targetWeight;
-  final List<Rep> sets;
+  final List<Set> sets;
 
   @override
   List<Object> get props => [exerciseId, exerciseName, sets];
@@ -21,22 +21,22 @@ class ExerciseSet extends Equatable {
 
   // TODO: write a test for this
   ExerciseSet toggleRep(int repIndex) {
-    final List<Rep> updatedSets = sets
+    final List<Set> updatedSets = sets
         .asMap()
-        .map((index, rep) {
+        .map((index, set) {
           final Option<int> reps = (index == repIndex)
-              ? rep.reps.fold(
-                  () => some(rep.targetReps),
+              ? set.reps.fold(
+                  () => some(set.targetReps),
                   (r) => (r - 1 >= 0) ? some(r - 1) : none(),
                 )
-              : rep.reps;
+              : set.reps;
           return MapEntry(
             index,
-            Rep(
-              targetReps: rep.targetReps,
-              targetRest: rep.targetRest,
+            Set(
+              targetReps: set.targetReps,
+              targetRest: set.targetRest,
               reps: reps,
-              weight: (index == repIndex) ? some(this.targetWeight) : rep.weight,
+              weight: (index == repIndex) ? some(this.targetWeight) : set.weight,
             ),
           );
         })

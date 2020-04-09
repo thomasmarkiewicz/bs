@@ -1,9 +1,10 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:bodysculpting/core/error/failures.dart';
+import 'package:bodysculpting/features/workout/data/models/units_model.dart';
 import 'package:bodysculpting/features/workout/domain/entities/exercise_set.dart';
-import 'package:bodysculpting/features/workout/domain/entities/rep.dart';
+import 'package:bodysculpting/features/workout/domain/entities/set.dart';
 import 'package:bodysculpting/features/workout/domain/entities/workout.dart';
-import 'package:bodysculpting/features/workout/domain/entities/workout_base.dart';
+import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
 import 'package:bodysculpting/features/workout/domain/usecases/get_workout_templates.dart';
 import 'package:bodysculpting/features/workout/presentation/pages/templates/templates_bloc.dart';
 import 'package:dartz/dartz.dart';
@@ -32,13 +33,15 @@ void main() {
           activity: Activity.lift,
           name: "Barbbell Lifts 5x5 A",
           description: some("Squat, Bench, Deadlift"),
+          units: UnitsModel(weight: "lb", distance: "km"),
           supersets: [
             [
               ExerciseSet(
                   exerciseId: "0537cd19644c",
                   exerciseName: "Squats",
+                  targetWeight: 45,
                   sets: [
-                    Rep(targetReps: 5, targetRest: 180, targetWeight: 45),
+                    Set(targetReps: 5, targetRest: 180),
                   ])
             ],
           ]),
@@ -46,13 +49,15 @@ void main() {
           activity: Activity.lift,
           name: "Barbbell Lifts 5x5 B",
           description: some("Squat, Shoulder Press, Rows"),
+          units: UnitsModel(weight: "lb", distance: "km"),
           supersets: [
             [
               ExerciseSet(
                   exerciseId: "0537cd19644c",
                   exerciseName: "Squats",
+                  targetWeight: 45,
                   sets: [
-                    Rep(targetReps: 5, targetRest: 180, targetWeight: 45),
+                    Set(targetReps: 5, targetRest: 180),
                   ])
             ],
           ]),

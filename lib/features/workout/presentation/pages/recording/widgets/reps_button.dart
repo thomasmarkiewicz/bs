@@ -1,9 +1,9 @@
-import 'package:bodysculpting/features/workout/domain/entities/rep.dart';
+import 'package:bodysculpting/features/workout/domain/entities/set.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 
 class RepsButton extends StatelessWidget {
-  final Option<Rep> set;
+  final Option<Set> set;
   final VoidCallback onPressed;
 
   const RepsButton({
@@ -51,7 +51,7 @@ class RepsButton extends StatelessWidget {
   }
 
   Widget _getRepsText(BuildContext context) {
-    final rep = set.getOrElse(() => Rep(
+    final rep = set.getOrElse(() => Set(
           targetReps: 0,
           targetRest: 0,
         ));

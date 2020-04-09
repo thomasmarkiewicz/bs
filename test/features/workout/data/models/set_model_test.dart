@@ -1,5 +1,5 @@
-import 'package:bodysculpting/features/workout/data/models/rep_model.dart';
-import 'package:bodysculpting/features/workout/domain/entities/rep.dart';
+import 'package:bodysculpting/features/workout/data/models/set_model.dart';
+import 'package:bodysculpting/features/workout/domain/entities/set.dart';
 import 'package:dartz/dartz.dart';
 import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
@@ -7,48 +7,45 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
-  final testRepModel = RepModel(
+  final testSetModel = SetModel(
     targetReps: 5,
     targetRest: 180,
-    targetWeight: 135,
     reps: some(4),
     weight: some(135),
   );
 
-  final testRepModelRequiredFieldsOnly = RepModel(
+  final testSetModelRequiredFieldsOnly = SetModel(
     targetReps: 10,
     targetRest: 180,
-    targetWeight: 20,
     reps: none(),
     weight: none(),
   );
 
   test('is a subclass of Rep', () async {
-    expect(testRepModel, isA<Rep>());
+    expect(testSetModel, isA<Set>());
   });
 
   group('fromJson', () {
     test('returns a valid model when JSON is good', () {
       final Map<String, dynamic> jsonMap =
-          json.decode(fixture('rep_model.json'));
-      final result = RepModel.fromJson(jsonMap);
-      expect(result, testRepModel);
+          json.decode(fixture('set_model.json'));
+      final result = SetModel.fromJson(jsonMap);
+      expect(result, testSetModel);
     });
     test('returns a valid model when JSON contains required fields only', () {
       final Map<String, dynamic> jsonMap =
-          json.decode(fixture('rep_model_required_only.json'));
-      final result = RepModel.fromJson(jsonMap);
-      expect(result, testRepModelRequiredFieldsOnly);
+          json.decode(fixture('set_model_required_only.json'));
+      final result = SetModel.fromJson(jsonMap);
+      expect(result, testSetModelRequiredFieldsOnly);
     });
   });
 
   group('toJson', () {
     test('return a JSON map containing all the fields', () async {
-      final result = testRepModel.toJson();
+      final result = testSetModel.toJson();
       final expectedMap = {
         "target_reps": 5,
         "target_rest": 180,
-        "target_weight": 135,
         "reps": 4,
         "weight": 135,
       };
@@ -56,11 +53,10 @@ void main() {
     });
 
     test('return a JSON map containing only required fields', () async {
-      final result = testRepModelRequiredFieldsOnly.toJson();
+      final result = testSetModelRequiredFieldsOnly.toJson();
       final expectedMap = {
         "target_reps": 10,
         "target_rest": 180,
-        "target_weight": 20,
       };
       expect(result, expectedMap);
     });

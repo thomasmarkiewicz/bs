@@ -1,10 +1,13 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:bodysculpting/core/error/failures.dart';
+import 'package:bodysculpting/features/workout/data/models/units_model.dart';
 import 'package:bodysculpting/features/workout/domain/entities/exercise_set.dart';
-import 'package:bodysculpting/features/workout/domain/entities/rep.dart';
+import 'package:bodysculpting/features/workout/domain/entities/set.dart';
 import 'package:bodysculpting/features/workout/domain/entities/workout.dart';
-import 'package:bodysculpting/features/workout/domain/entities/workout_base.dart';
+import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
 import 'package:bodysculpting/features/workout/domain/usecases/create_workout.dart';
+import 'package:bodysculpting/features/workout/domain/usecases/deleteWorkout.dart';
+import 'package:bodysculpting/features/workout/domain/usecases/finish_workout.dart';
+import 'package:bodysculpting/features/workout/domain/usecases/update_target_weight.dart';
 import 'package:bodysculpting/features/workout/domain/usecases/update_workout_reps.dart';
 import 'package:bodysculpting/features/workout/presentation/pages/recording/recording_bloc.dart';
 import 'package:dartz/dartz.dart';
@@ -15,85 +18,105 @@ class MockCreateWorkout extends Mock implements CreateWorkout {}
 
 class MockUpdateWorkoutReps extends Mock implements UpdateWorkoutReps {}
 
+class MockFinishWorkout extends Mock implements FinishWorkout {}
+
+class MockUpdateTargetWeight extends Mock implements UpdateTargetWeight {}
+
+class MockDeleteWorkout extends Mock implements DeleteWorkout {}
+
 void main() {
   RecordingBloc bloc;
   MockCreateWorkout mockCreateWorkout;
   MockUpdateWorkoutReps mockUpdateWorkoutReps;
+  MockFinishWorkout mockFinishWorkout;
+  MockUpdateTargetWeight mockUpdateTargetWeight;
+  MockDeleteWorkout mockDeleteWorkout;
 
   final testWorkout = Workout(
     activity: Activity.lift,
     name: 'Barbbell Lifts 3x10 A',
     description: some('Squat, Bench, Press'),
+    units: UnitsModel(weight: "lb", distance: "km"),
     start: some(DateTime(2020, 4, 25, 17, 30, 00)),
     end: some(DateTime(2020, 4, 25, 18, 00, 00)),
     summary: some("Optional summary"),
     supersets: [
       [
-        ExerciseSet(exerciseId: '1', exerciseName: 'Squats', sets: [
-          Rep(
-              targetReps: 10,
-              targetRest: 180,
-              targetWeight: 135,
-              reps: some(10),
-              weight: some(135)),
-          Rep(
-              targetReps: 10,
-              targetRest: 180,
-              targetWeight: 135,
-              reps: some(10),
-              weight: some(135)),
-          Rep(
-              targetReps: 10,
-              targetRest: 180,
-              targetWeight: 135,
-              reps: some(10),
-              weight: some(135)),
-        ])
+        ExerciseSet(
+            exerciseId: '1',
+            exerciseName: 'Squats',
+            targetWeight: 135,
+            sets: [
+              Set(
+                targetReps: 10,
+                targetRest: 180,
+                reps: some(10),
+                weight: some(135),
+              ),
+              Set(
+                targetReps: 10,
+                targetRest: 180,
+                reps: some(10),
+                weight: some(135),
+              ),
+              Set(
+                targetReps: 10,
+                targetRest: 180,
+                reps: some(10),
+                weight: some(135),
+              ),
+            ])
       ],
       [
-        ExerciseSet(exerciseId: '1', exerciseName: 'Squats', sets: [
-          Rep(
+        ExerciseSet(
+            exerciseId: '1',
+            exerciseName: 'Squats',
+            targetWeight: 135,
+            sets: [
+              Set(
+                targetReps: 10,
+                targetRest: 180,
+                reps: some(9),
+                weight: some(135),
+              ),
+              Set(
+                targetReps: 10,
+                targetRest: 180,
+                reps: some(9),
+                weight: some(135),
+              ),
+              Set(
+                targetReps: 10,
+                targetRest: 180,
+                reps: some(8),
+                weight: some(130),
+              ),
+            ]),
+        ExerciseSet(
+          exerciseId: '2',
+          exerciseName: 'Bench Press',
+          targetWeight: 135,
+          sets: [
+            Set(
               targetReps: 10,
               targetRest: 180,
-              targetWeight: 135,
-              reps: some(9),
-              weight: some(135)),
-          Rep(
+              reps: none(),
+              weight: none(),
+            ),
+            Set(
               targetReps: 10,
               targetRest: 180,
-              targetWeight: 135,
-              reps: some(9),
-              weight: some(135)),
-          Rep(
+              reps: none(),
+              weight: none(),
+            ),
+            Set(
               targetReps: 10,
               targetRest: 180,
-              targetWeight: 135,
-              reps: some(8),
-              weight: some(130)),
-        ]),
-        ExerciseSet(exerciseId: '2', exerciseName: 'Bench Press', sets: [
-          Rep(
-            targetReps: 10,
-            targetRest: 180,
-            targetWeight: 135,
-            reps: none(),
-            weight: none(),
-          ),
-          Rep(
-            targetReps: 10,
-            targetRest: 180,
-            targetWeight: 135,
-            reps: none(),
-            weight: none(),
-          ),
-          Rep(
-            targetReps: 10,
-            targetRest: 180,
-            targetWeight: 135,
-            reps: none(),
-            weight: none(),
-          ),
-        ]),
+              reps: none(),
+              weight: none(),
+            ),
+          ],
+        ),
       ]
     ],
   );
@@ -101,9 +124,17 @@ void main() {
   setUp(() {
     mockCreateWorkout = MockCreateWorkout();
     mockUpdateWorkoutReps = MockUpdateWorkoutReps();
+    mockFinishWorkout = MockFinishWorkout();
+    mockUpdateTargetWeight = MockUpdateTargetWeight();
+    mockDeleteWorkout = MockDeleteWorkout();
+
     bloc = RecordingBloc(
-        createWorkout: mockCreateWorkout,
-        updateWorkoutReps: mockUpdateWorkoutReps);
+      createWorkout: mockCreateWorkout,
+      updateWorkoutReps: mockUpdateWorkoutReps,
+      finishWorkout: mockFinishWorkout,
+      updateTargetWeight: mockUpdateTargetWeight,
+      deleteWorkout: mockDeleteWorkout,
+    );
   });
 
   test('initial state should be Initial', () {

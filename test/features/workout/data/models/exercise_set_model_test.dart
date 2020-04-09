@@ -1,36 +1,32 @@
 import 'dart:convert';
-
 import 'package:bodysculpting/features/workout/data/models/exercise_set_model.dart';
-import 'package:bodysculpting/features/workout/data/models/rep_model.dart';
+import 'package:bodysculpting/features/workout/data/models/set_model.dart';
 import 'package:bodysculpting/features/workout/domain/entities/exercise_set.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
   final testExerciseSetModel = ExerciseSetModel(
     exerciseId: '1',
     exerciseName: 'Bench Press',
+    targetWeight: 135,
     sets: [
-      RepModel(
+      SetModel(
         targetReps: 5,
         targetRest: 180,
-        targetWeight: 135,
         reps: some(5),
         weight: some(135),
       ),
-      RepModel(
+      SetModel(
         targetReps: 5,
         targetRest: 180,
-        targetWeight: 135,
         reps: some(4),
         weight: some(130),
       ),
-      RepModel(
+      SetModel(
         targetReps: 5,
         targetRest: 180,
-        targetWeight: 135,
         reps: none(),
         weight: none(),
       ),
@@ -40,6 +36,7 @@ void main() {
   final testExerciseSetModel_EmptySets = ExerciseSetModel(
     exerciseId: '2',
     exerciseName: 'Dumbbell Rows',
+    targetWeight: 135,
     sets: [],
   );
 
@@ -69,10 +66,11 @@ void main() {
       final expectedMap = {
         "exercise_id": "1",
         "exercise_name": "Bench Press",
+        "target_weight": 135,
         "sets": [
-          {"target_reps": 5, "target_rest": 180, "target_weight": 135, "reps": 5, "weight": 135},
-          {"target_reps": 5, "target_rest": 180, "target_weight": 135, "reps": 4, "weight": 130},
-          {"target_reps": 5, "target_rest": 180, "target_weight": 135},
+          {"target_reps": 5, "target_rest": 180, "reps": 5, "weight": 135},
+          {"target_reps": 5, "target_rest": 180, "reps": 4, "weight": 130},
+          {"target_reps": 5, "target_rest": 180},
         ]
       };
       expect(result, expectedMap);
@@ -84,6 +82,7 @@ void main() {
       final expectedMap = {
         "exercise_id": "2",
         "exercise_name": "Dumbbell Rows",
+        "target_weight": 135,
         "sets": []
       };
       expect(result, expectedMap);

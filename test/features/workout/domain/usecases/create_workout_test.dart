@@ -1,4 +1,6 @@
+import 'package:bodysculpting/features/workout/domain/entities/units.dart';
 import 'package:bodysculpting/features/workout/domain/entities/workout.dart';
+import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
 import 'package:bodysculpting/features/workout/domain/repositories/abstract_workout_repository.dart';
 import 'package:bodysculpting/features/workout/domain/usecases/create_workout.dart';
 import 'package:dartz/dartz.dart';
@@ -20,6 +22,7 @@ void main() {
     start: some(DateTime.now()),
     end: none(),
     summary: none(),
+    units: Units(weight: 'lb', distance: 'mi'),
     activity: Activity.lift,
     name: 'Barbbell Lifts 3x10 A',
     description: some('Squat, bench, deadlift'),

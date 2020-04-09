@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
-class Rep extends Equatable {
+class Set extends Equatable {
   final int targetReps;
   final int targetRest;
   final Option<int> reps;
@@ -11,7 +11,7 @@ class Rep extends Equatable {
   @override
   List<Object> get props => [targetReps, targetRest, reps, weight];
 
-  Rep({
+  Set({
     @required this.targetReps,
     @required this.targetRest,
     Option<int> reps,

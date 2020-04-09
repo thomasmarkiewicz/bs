@@ -1,7 +1,8 @@
 import 'package:bodysculpting/features/workout/domain/entities/exercise_set.dart';
-import 'package:bodysculpting/features/workout/domain/entities/rep.dart';
+import 'package:bodysculpting/features/workout/domain/entities/set.dart';
+import 'package:bodysculpting/features/workout/domain/entities/units.dart';
 import 'package:bodysculpting/features/workout/domain/entities/workout.dart';
-import 'package:bodysculpting/features/workout/domain/entities/workout_base.dart';
+import 'package:bodysculpting/features/workout/domain/entities/workout_summary.dart';
 import 'package:bodysculpting/features/workout/domain/repositories/abstract_workout_repository.dart';
 import 'package:bodysculpting/features/workout/domain/usecases/update_workout_reps.dart';
 import 'package:dartz/dartz.dart';
@@ -26,12 +27,14 @@ void main() {
     activity: Activity.lift,
     name: 'Barbbell Lifts 3x10 A',
     description: some('Squat, bench, deadlift'),
+    units: Units(weight: 'lb', distance: 'mi'),
     supersets: [
       [
         ExerciseSet(
             exerciseId: "1",
             exerciseName: "Test",
-            sets: [Rep(targetReps: 5, targetRest: 180, targetWeight: 45)])
+            targetWeight: 45,
+            sets: [Set(targetReps: 5, targetRest: 180)])
       ]
     ],
   );
@@ -43,11 +46,14 @@ void main() {
     summary: tWorkoutBefore.summary,
     name: tWorkoutBefore.name,
     description: tWorkoutBefore.description,
+    units: Units(weight: 'lb', distance: 'mi'),
     supersets: [
       [
-        ExerciseSet(exerciseId: "1", exerciseName: "Test", sets: [
-          Rep(targetReps: 5, targetRest: 180, targetWeight: 45, reps: some(5))
-        ])
+        ExerciseSet(
+            exerciseId: "1",
+            exerciseName: "Test",
+            targetWeight: 45,
+            sets: [Set(targetReps: 5, targetRest: 180, reps: some(5))])
       ]
     ],
   );
