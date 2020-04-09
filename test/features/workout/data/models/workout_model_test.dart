@@ -15,7 +15,7 @@ void main() {
     activity: Activity.lift,
     name: 'Barbbell Lifts 3x10 A',
     description: some('Squat, Bench, Press'),
-    units: UnitsModel(weight: "lb", distance: "km"),
+    units: UnitsModel(weight: "lb", distance: "mi"),
     start: some(DateTime(2020, 4, 25, 17, 30, 00)),
     end: some(DateTime(2020, 4, 25, 18, 00, 00)),
     summary: some("Optional summary"),
@@ -113,10 +113,7 @@ void main() {
         "activity": "lift",
         "name": "Barbbell Lifts 3x10 A",
         "description": "Squat, Bench, Press",
-        "units": {
-          "weight": "lb",
-          "distance": "mi"
-        },
+        "units": {"weight": "lb", "distance": "mi"},
         "start": "2020-04-25T17:30:00.000",
         "end": "2020-04-25T18:00:00.000",
         "summary": "Optional summary",

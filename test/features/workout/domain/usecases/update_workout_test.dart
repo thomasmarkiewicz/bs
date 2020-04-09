@@ -46,14 +46,20 @@ void main() {
     summary: tWorkoutBefore.summary,
     name: tWorkoutBefore.name,
     description: tWorkoutBefore.description,
-    units: Units(weight: 'lb', distance: 'mi'),
+    units: tWorkoutBefore.units,
     supersets: [
       [
         ExerciseSet(
             exerciseId: "1",
             exerciseName: "Test",
             targetWeight: 45,
-            sets: [Set(targetReps: 5, targetRest: 180, reps: some(5))])
+            sets: [
+              Set(
+                  targetReps: 5,
+                  targetRest: 180,
+                  reps: some(5),
+                  weight: some(45))
+            ])
       ]
     ],
   );
