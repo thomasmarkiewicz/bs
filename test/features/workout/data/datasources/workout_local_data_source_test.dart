@@ -19,6 +19,14 @@ void main() {
   MockJsonLocalDataSource mockJsonLocalDataSource;
   WorkoutLocalDataSource localDataSource;
 
+  final whenWorkoutExists = () =>
+      when(mockJsonLocalDataSource.workoutExists(start: anyNamed('start')))
+          .thenAnswer((_) async => Future.value(true));
+
+  final whenWorkoutDoesNotExist = () =>
+      when(mockJsonLocalDataSource.workoutExists(start: anyNamed('start')))
+          .thenAnswer((_) async => Future.value(false));
+
   setUp(() {
     mockJsonLocalDataSource = MockJsonLocalDataSource();
     localDataSource = WorkoutLocalDataSource(mockJsonLocalDataSource);
@@ -110,8 +118,7 @@ void main() {
     test('returns a Workout if one did not exist yet', () async {
       when(mockJsonLocalDataSource.writeWorkout(any))
           .thenAnswer((_) async => Future.value(testWorkout));
-      when(mockJsonLocalDataSource.workoutExists(start: anyNamed('start')))
-          .thenAnswer((_) async => Future.value(false));
+      whenWorkoutDoesNotExist();
       final result = await localDataSource.createWorkout(testWorkout);
 
       expect(result, testWorkout);
@@ -123,9 +130,7 @@ void main() {
     });
 
     test('throws CacheException if workout already exists', () async {
-      // setup mock to pretend workout already exists
-      when(mockJsonLocalDataSource.workoutExists(start: anyNamed('start')))
-          .thenAnswer((_) async => Future.value(true));
+      whenWorkoutExists();
 
       final call = localDataSource.createWorkout;
 
@@ -142,11 +147,10 @@ void main() {
     test(
         'throws CacheException if workout does not exist yet but fails to write',
         () async {
+      whenWorkoutDoesNotExist();
+
       when(mockJsonLocalDataSource.writeWorkout(any))
           .thenThrow(FileSystemException());
-
-      when(mockJsonLocalDataSource.workoutExists(start: anyNamed('start')))
-          .thenAnswer((_) async => Future.value(false));
 
       final call = localDataSource.createWorkout;
 
@@ -165,9 +169,7 @@ void main() {
 
   group('updateWorkout', () {
     test('throws CacheException if workout does not already exist', () async {
-      // setup mock to pretend workout already exists
-      when(mockJsonLocalDataSource.workoutExists(start: anyNamed('start')))
-          .thenAnswer((_) async => Future.value(false));
+      whenWorkoutDoesNotExist();
 
       final call = localDataSource.updateWorkout;
 
@@ -182,11 +184,7 @@ void main() {
     });
 
     test('throws CacheException if writing fails', () async {
-      // setup mock to pretend workout already exists
-      when(mockJsonLocalDataSource.readWorkout(
-        start: anyNamed('start'),
-        end: anyNamed('end'),
-      )).thenAnswer((_) async => Future.value(testWorkout));
+      whenWorkoutExists();
 
       when(mockJsonLocalDataSource.writeWorkout(any))
           .thenThrow(FileSystemException());
@@ -196,9 +194,8 @@ void main() {
       await expectLater(() async => await call(testWorkout),
           throwsA(TypeMatcher<CacheException>()));
 
-      verify(mockJsonLocalDataSource.readWorkout(
+      verify(mockJsonLocalDataSource.workoutExists(
         start: testWorkout.start.getOrElse(() => DateTime.now()),
-        end: testWorkout.end,
       ));
 
       verify(mockJsonLocalDataSource.writeWorkout(testWorkout));
@@ -208,10 +205,7 @@ void main() {
 
     test('returns saved workout if everything succeeded', () async {
       // setup mock to pretend workout already exists
-      when(mockJsonLocalDataSource.readWorkout(
-        start: anyNamed('start'),
-        end: anyNamed('end'),
-      )).thenAnswer((_) async => Future.value(testWorkout));
+      whenWorkoutExists();
 
       when(mockJsonLocalDataSource.writeWorkout(any))
           .thenAnswer((_) async => Future.value(testWorkout));
@@ -220,9 +214,8 @@ void main() {
 
       expect(result, testWorkout);
 
-      verify(mockJsonLocalDataSource.readWorkout(
+      verify(mockJsonLocalDataSource.workoutExists(
         start: testWorkout.start.getOrElse(() => DateTime.now()),
-        end: testWorkout.end,
       ));
 
       verify(mockJsonLocalDataSource.writeWorkout(testWorkout));
