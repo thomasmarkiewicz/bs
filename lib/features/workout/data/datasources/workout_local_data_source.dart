@@ -16,7 +16,8 @@ class WorkoutLocalDataSource implements AbstractWorkoutLocalDataSource {
   @override
   Future<WorkoutModel> createWorkout(WorkoutModel workout) async {
     if (await jsonLocalDataSource.workoutExists(
-        start: workout.start.getOrElse(() => DateTime.now()))) {
+      start: workout.start.getOrElse(() => DateTime.now()),
+    )) {
       throw CacheException();
     }
 
