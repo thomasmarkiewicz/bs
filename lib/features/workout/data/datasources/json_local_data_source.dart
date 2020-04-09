@@ -637,7 +637,7 @@ class JsonLocalDataSource implements AbstractJsonLocalDataSource {
         for (final entity in files) {
           //files.forEach((entity) async {
           if (entity is File) {
-            String contents = await (entity as File).readAsString();
+            String contents = await entity.readAsString();
             final summary = WorkoutSummaryModel.fromJson(jsonDecode(contents));
             if (summary.start.isSome() &&
                 summary.end.isSome() &&

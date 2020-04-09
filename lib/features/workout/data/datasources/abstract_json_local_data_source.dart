@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:bodysculpting/features/workout/data/models/document_model.dart';
 import 'package:bodysculpting/features/workout/data/models/workout_model.dart';
 import 'package:bodysculpting/features/workout/data/models/workout_summary_model.dart';
-import 'package:bodysculpting/features/workout/domain/entities/workout.dart';
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 

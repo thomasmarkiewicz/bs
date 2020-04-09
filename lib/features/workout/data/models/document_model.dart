@@ -41,11 +41,14 @@ class DocumentModel extends Equatable {
 
   Map<String, dynamic> toJson() {
     List<Map> exercises = this.exercises != null
-        ? this.exercises.map((i) => (i as ExerciseModel).toJson()).toList()
+        ? this.exercises.map((exercise) => exercise.toJson()).toList()
         : null;
 
     List<Map> workoutTemplates = this.workoutTemplates != null
-        ? this.workoutTemplates.map((i) => (i as WorkoutModel).toJson()).toList()
+        ? this
+            .workoutTemplates
+            .map((workoutTemplate) => workoutTemplate.toJson())
+            .toList()
         : null;
 
     return {
@@ -55,5 +58,4 @@ class DocumentModel extends Equatable {
       'workout_templates': workoutTemplates
     };
   }
-
 }

@@ -37,17 +37,17 @@ class SetTile extends StatelessWidget {
               style: textStyle,
             )),
             DropdownButton<int>(
-                style: buttonTextStyle,
-                value: exerciseSet.targetWeight,
-                items: List<DropdownMenuItem<int>>.generate(
-                  100,
-                  (i) => DropdownMenuItem<int>(
-                    value: i * 5,
-                    child: Text("${i * 5} ${units.weight}"),
-                  ),
+              style: buttonTextStyle,
+              value: exerciseSet.targetWeight,
+              items: List<DropdownMenuItem<int>>.generate(
+                100,
+                (i) => DropdownMenuItem<int>(
+                  value: i * 5,
+                  child: Text("${i * 5} ${units.weight}"),
                 ),
-                onChanged: (value) => this.onTargetWeightChanged(value),
-                ),
+              ),
+              onChanged: (value) => this.onTargetWeightChanged(value),
+            ),
           ],
         ),
         Row(
@@ -88,13 +88,4 @@ class SetTile extends StatelessWidget {
       ],
     ));
   }
-
-  List<DropdownMenuItem<int>> _weightItems() =>
-      List<DropdownMenuItem<int>>.generate(
-        100,
-        (i) => DropdownMenuItem<int>(
-          value: i * 5,
-          child: Text("${i * 5} ${units.weight}"),
-        ),
-      );
 }

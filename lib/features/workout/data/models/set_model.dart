@@ -41,20 +41,12 @@ class SetModel extends Set {
 
     reps.fold(
       () => {},
-      (r) => {
-        map.addAll({
-          'reps': r,
-        })
-      },
+      (r) => map.addAll({'reps': r}),
     );
 
     weight.fold(
       () => {},
-      (w) => {
-        map.addAll({
-          'weight': w,
-        })
-      },
+      (w) => map.addAll({'weight': w}),
     );
 
     return map;
