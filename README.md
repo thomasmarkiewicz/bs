@@ -1,8 +1,8 @@
-# Body Sculpting
-
 ![](https://github.com/thomasmarkiewicz/bodysculpting/workflows/Build/badge.svg?branch=master)
 
-My hope is that one day this app will become a viable alternative for keeping track of all of your workouts. Right now development is in early stages and includes only basic examples of how weight-lifting tracking will work.  My plan is to eventually support keeping track of the following activities:
+![Body Sculpting Banner](/assets/github_banner.png)
+
+My hope is that one day this app can become a viable alternative for keeping track of all of your workouts. Right now it is in early stages of development and already includes weight-lifting tracking will work. My plan is to eventually support keeping track of the following activities:
 
 - many different **weight lifting** programs
 - triathlon (**swimming, biking, running**)
@@ -14,4 +14,4 @@ A secondary goal is to place YOU in control of your data. The data should be sto
 
 Another major goal is to create a workout-tracking app that doesn't track YOU. It should not require any info about you to work or force you to create accounts if you don't want to. You should have the option to share your data, but only if you explicitly choose to do so.
 
-And of course the app needs to be beautiful, easy to use, and practical so you can focus on working out and sculpting your body  instead of figuring out, setting up and configuring the app.
+And of course the app needs to be beautiful, easy to use, and practical so you can focus on working out and sculpting your body instead of figuring out, setting up and configuring the app.
