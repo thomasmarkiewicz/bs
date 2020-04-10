@@ -7,6 +7,7 @@ import 'package:meta/meta.dart';
 
 import 'exercise_set_model.dart';
 
+// TODO: refactor to extend WorkoutSummaryModel instead to remove code duplication?
 class WorkoutModel extends Workout {
   WorkoutModel({
     @required String name,
@@ -99,29 +100,17 @@ class WorkoutModel extends Workout {
 
     start.fold(
       () => {},
-      (s) => {
-        map.addAll({
-          'start': s.toIso8601String(),
-        })
-      },
+      (s) => map.addAll({'start': s.toIso8601String()}),
     );
 
     end.fold(
       () => {},
-      (e) => {
-        map.addAll({
-          'end': e.toIso8601String(),
-        })
-      },
+      (e) => map.addAll({'end': e.toIso8601String()}),
     );
 
     summary.fold(
       () => {},
-      (s) => {
-        map.addAll({
-          'summary': s,
-        })
-      },
+      (s) => map.addAll({'summary': s}),
     );
 
     return map;

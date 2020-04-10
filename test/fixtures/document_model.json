@@ -28,17 +28,22 @@
       "activity": "lift",
       "name": "Barbbell Lifts 5x5 A",
       "description": "Squat, Bench, Deadlift",
+      "units": {
+        "weight": "lb",
+        "distance": "mi"
+      },
       "supersets": [
         [
           {
             "exercise_id": "0537cd19644c",
             "exercise_name": "Squats",
+            "target_weight": 45,
             "sets": [
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 }
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 }
             ]
           }
         ],
@@ -46,12 +51,13 @@
           {
             "exercise_id": "33871bf6de60",
             "exercise_name": "Bench Press",
+            "target_weight": 45,
             "sets": [
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 }
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 }
             ]
           }
         ],
@@ -59,7 +65,8 @@
           {
             "exercise_id": "ca1240b16dab",
             "exercise_name": "Deadlifts",
-            "sets": [{ "target_reps": 5, "target_rest": 180, "target_weight": 45 }]
+            "target_weight": 45,
+            "sets": [{ "target_reps": 5, "target_rest": 180 }]
           }
         ]
       ]
@@ -68,17 +75,22 @@
       "activity": "lift",
       "name": "Barbbell Lifts 5x5 B",
       "description": "Squat, Shoulder Press, Rows",
+      "units": {
+        "weight": "lb",
+        "distance": "mi"
+      },
       "supersets": [
         [
           {
             "exercise_id": "0537cd19644c",
             "exercise_name": "Squats",
+            "target_weight": 45,
             "sets": [
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 }
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 }
             ]
           }
         ],
@@ -86,12 +98,13 @@
           {
             "exercise_id": "7eef10e8aaed",
             "exercise_name": "Shoulder Press",
+            "target_weight": 45,
             "sets": [
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 }
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 }
             ]
           }
         ],
@@ -99,12 +112,13 @@
           {
             "exercise_id": "056672996981",
             "exercise_name": "Rows",
+            "target_weight": 45,
             "sets": [
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 },
-              { "target_reps": 5, "target_rest": 180, "target_weight": 45 }
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 },
+              { "target_reps": 5, "target_rest": 180 }
             ]
           }
         ]

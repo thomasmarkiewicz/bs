@@ -33,7 +33,7 @@ void main() {
     ],
   );
 
-  final testExerciseSetModel_EmptySets = ExerciseSetModel(
+  final testExerciseSetModelEmptySets = ExerciseSetModel(
     exerciseId: '2',
     exerciseName: 'Dumbbell Rows',
     targetWeight: 135,
@@ -56,7 +56,7 @@ void main() {
       final Map<String, dynamic> jsonMap =
           json.decode(fixture('exercise_set_model_empty_sets.json'));
       final result = ExerciseSetModel.fromJson(jsonMap);
-      expect(result, testExerciseSetModel_EmptySets);
+      expect(result, testExerciseSetModelEmptySets);
     });
   });
 
@@ -78,7 +78,7 @@ void main() {
 
     test('returns a JSON map containing the proper data when sets are empty',
         () async {
-      final result = testExerciseSetModel_EmptySets.toJson();
+      final result = testExerciseSetModelEmptySets.toJson();
       final expectedMap = {
         "exercise_id": "2",
         "exercise_name": "Dumbbell Rows",

@@ -19,6 +19,14 @@ void main() {
   MockJsonLocalDataSource mockJsonLocalDataSource;
   WorkoutLocalDataSource localDataSource;
 
+  final whenWorkoutExists = () =>
+      when(mockJsonLocalDataSource.workoutExists(start: anyNamed('start')))
+          .thenAnswer((_) async => Future.value(true));
+
+  final whenWorkoutDoesNotExist = () =>
+      when(mockJsonLocalDataSource.workoutExists(start: anyNamed('start')))
+          .thenAnswer((_) async => Future.value(false));
+
   setUp(() {
     mockJsonLocalDataSource = MockJsonLocalDataSource();
     localDataSource = WorkoutLocalDataSource(mockJsonLocalDataSource);
@@ -34,101 +42,103 @@ void main() {
     summary: some("Optional summary"),
     supersets: [
       [
-        ExerciseSetModel(exerciseId: '1', exerciseName: 'Squats', targetWeight: 135, sets: [
-          SetModel(
-              targetReps: 10,
-              targetRest: 180,
-              
-              reps: some(10),
-              weight: some(135)),
-          SetModel(
-              targetReps: 10,
-              targetRest: 180,
-              reps: some(10),
-              weight: some(135)),
-          SetModel(
-              targetReps: 10,
-              targetRest: 180,
-              reps: some(10),
-              weight: some(135)),
-        ])
+        ExerciseSetModel(
+            exerciseId: '1',
+            exerciseName: 'Squats',
+            targetWeight: 135,
+            sets: [
+              SetModel(
+                  targetReps: 10,
+                  targetRest: 180,
+                  reps: some(10),
+                  weight: some(135)),
+              SetModel(
+                  targetReps: 10,
+                  targetRest: 180,
+                  reps: some(10),
+                  weight: some(135)),
+              SetModel(
+                  targetReps: 10,
+                  targetRest: 180,
+                  reps: some(10),
+                  weight: some(135)),
+            ])
       ],
       [
-        ExerciseSetModel(exerciseId: '1', exerciseName: 'Squats', targetWeight: 135, sets: [
-          SetModel(
-              targetReps: 10,
-              targetRest: 180,
-              reps: some(9),
-              weight: some(135)),
-          SetModel(
-              targetReps: 10,
-              targetRest: 180,
-              reps: some(9),
-              weight: some(135)),
-          SetModel(
-              targetReps: 10,
-              targetRest: 180,
-              reps: some(8),
-              weight: some(130)),
-        ]),
-        ExerciseSetModel(exerciseId: '2', exerciseName: 'Bench Press', targetWeight: 135, sets: [
-          SetModel(
-            targetReps: 10,
-            targetRest: 180,
-            reps: none(),
-            weight: none(),
-          ),
-          SetModel(
-            targetReps: 10,
-            targetRest: 180,
-            reps: none(),
-            weight: none(),
-          ),
-          SetModel(
-            targetReps: 10,
-            targetRest: 180,
-            reps: none(),
-            weight: none(),
-          ),
-        ]),
+        ExerciseSetModel(
+            exerciseId: '1',
+            exerciseName: 'Squats',
+            targetWeight: 135,
+            sets: [
+              SetModel(
+                  targetReps: 10,
+                  targetRest: 180,
+                  reps: some(9),
+                  weight: some(135)),
+              SetModel(
+                  targetReps: 10,
+                  targetRest: 180,
+                  reps: some(9),
+                  weight: some(135)),
+              SetModel(
+                  targetReps: 10,
+                  targetRest: 180,
+                  reps: some(8),
+                  weight: some(130)),
+            ]),
+        ExerciseSetModel(
+            exerciseId: '2',
+            exerciseName: 'Bench Press',
+            targetWeight: 135,
+            sets: [
+              SetModel(
+                targetReps: 10,
+                targetRest: 180,
+                reps: none(),
+                weight: none(),
+              ),
+              SetModel(
+                targetReps: 10,
+                targetRest: 180,
+                reps: none(),
+                weight: none(),
+              ),
+              SetModel(
+                targetReps: 10,
+                targetRest: 180,
+                reps: none(),
+                weight: none(),
+              ),
+            ]),
       ]
     ],
   );
 
   group('createWorkout', () {
     test('returns a Workout if one did not exist yet', () async {
-      when(mockJsonLocalDataSource.readWorkout(
-              start: anyNamed('start'), end: anyNamed('end')))
-          .thenThrow(FileSystemException());
       when(mockJsonLocalDataSource.writeWorkout(any))
           .thenAnswer((_) async => Future.value(testWorkout));
+      whenWorkoutDoesNotExist();
       final result = await localDataSource.createWorkout(testWorkout);
 
       expect(result, testWorkout);
-      verify(mockJsonLocalDataSource.readWorkout(
+      verify(mockJsonLocalDataSource.workoutExists(
         start: testWorkout.start.getOrElse(() => DateTime.now()),
-        end: testWorkout.end,
       ));
       verify(mockJsonLocalDataSource.writeWorkout(testWorkout));
       verifyNoMoreInteractions(mockJsonLocalDataSource);
     });
 
     test('throws CacheException if workout already exists', () async {
-      // setup mock to pretend workout already exists
-      when(
-        mockJsonLocalDataSource.readWorkout(
-          start: anyNamed('start'),
-          end: anyNamed('end'),
-        ),
-      ).thenAnswer((_) async => Future.value(testWorkout));
+      whenWorkoutExists();
 
       final call = localDataSource.createWorkout;
 
-      expect(() => call(testWorkout), throwsA(TypeMatcher<CacheException>()));
+      await expectLater(() async => await call(testWorkout),
+          throwsA(TypeMatcher<CacheException>()));
 
-      verify(mockJsonLocalDataSource.readWorkout(
+      verify(mockJsonLocalDataSource.workoutExists(
         start: testWorkout.start.getOrElse(() => DateTime.now()),
-        end: testWorkout.end,
       ));
 
       verifyNoMoreInteractions(mockJsonLocalDataSource);
@@ -137,19 +147,18 @@ void main() {
     test(
         'throws CacheException if workout does not exist yet but fails to write',
         () async {
-      when(mockJsonLocalDataSource.readWorkout(
-              start: anyNamed('start'), end: anyNamed('end')))
-          .thenThrow(FileSystemException());
+      whenWorkoutDoesNotExist();
+
       when(mockJsonLocalDataSource.writeWorkout(any))
           .thenThrow(FileSystemException());
 
       final call = localDataSource.createWorkout;
 
-      expect(() => call(testWorkout), throwsA(TypeMatcher<CacheException>()));
+      await expectLater(() async => await call(testWorkout),
+          throwsA(TypeMatcher<CacheException>()));
 
-      verify(mockJsonLocalDataSource.readWorkout(
+      verify(mockJsonLocalDataSource.workoutExists(
         start: testWorkout.start.getOrElse(() => DateTime.now()),
-        end: testWorkout.end,
       ));
 
       verify(mockJsonLocalDataSource.writeWorkout(testWorkout));
@@ -160,45 +169,33 @@ void main() {
 
   group('updateWorkout', () {
     test('throws CacheException if workout does not already exist', () async {
-      // setup mock to pretend workout already exists
-      when(
-        mockJsonLocalDataSource.readWorkout(
-          start: anyNamed('start'),
-          end: anyNamed('end'),
-        ),
-      ).thenThrow(FileSystemException());
+      whenWorkoutDoesNotExist();
 
       final call = localDataSource.updateWorkout;
 
-      expect(() async => await call(testWorkout),
+      await expectLater(() async => await call(testWorkout),
           throwsA(TypeMatcher<CacheException>()));
 
-      verify(mockJsonLocalDataSource.readWorkout(
+      verify(mockJsonLocalDataSource.workoutExists(
         start: testWorkout.start.getOrElse(() => DateTime.now()),
-        end: testWorkout.end,
       ));
 
       verifyNoMoreInteractions(mockJsonLocalDataSource);
     });
 
     test('throws CacheException if writing fails', () async {
-      // setup mock to pretend workout already exists
-      when(mockJsonLocalDataSource.readWorkout(
-        start: anyNamed('start'),
-        end: anyNamed('end'),
-      )).thenAnswer((_) async => Future.value(testWorkout));
+      whenWorkoutExists();
 
       when(mockJsonLocalDataSource.writeWorkout(any))
           .thenThrow(FileSystemException());
 
       final call = localDataSource.updateWorkout;
 
-      expect(() async => await call(testWorkout),
+      await expectLater(() async => await call(testWorkout),
           throwsA(TypeMatcher<CacheException>()));
 
-      verify(mockJsonLocalDataSource.readWorkout(
+      verify(mockJsonLocalDataSource.workoutExists(
         start: testWorkout.start.getOrElse(() => DateTime.now()),
-        end: testWorkout.end,
       ));
 
       verify(mockJsonLocalDataSource.writeWorkout(testWorkout));
@@ -208,10 +205,7 @@ void main() {
 
     test('returns saved workout if everything succeeded', () async {
       // setup mock to pretend workout already exists
-      when(mockJsonLocalDataSource.readWorkout(
-        start: anyNamed('start'),
-        end: anyNamed('end'),
-      )).thenAnswer((_) async => Future.value(testWorkout));
+      whenWorkoutExists();
 
       when(mockJsonLocalDataSource.writeWorkout(any))
           .thenAnswer((_) async => Future.value(testWorkout));
@@ -220,9 +214,8 @@ void main() {
 
       expect(result, testWorkout);
 
-      verify(mockJsonLocalDataSource.readWorkout(
+      verify(mockJsonLocalDataSource.workoutExists(
         start: testWorkout.start.getOrElse(() => DateTime.now()),
-        end: testWorkout.end,
       ));
 
       verify(mockJsonLocalDataSource.writeWorkout(testWorkout));

@@ -36,9 +36,9 @@ void main() {
     activity: Activity.lift,
     name: 'Barbbell Lifts 3x10 A',
     description: some('Squat, Bench, Press'),
-    units: UnitsModel(weight: "lb", distance: "km"),
-    start: some(DateTime(2020, 4, 25, 17, 30, 00)),
-    end: some(DateTime(2020, 4, 25, 18, 00, 00)),
+    units: UnitsModel(weight: "lb", distance: "mi"),
+    start: none(),
+    end: none(),
     summary: some("Optional summary"),
     supersets: [
       [

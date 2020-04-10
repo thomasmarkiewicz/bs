@@ -45,7 +45,7 @@ class AddWorkoutFloatingActionButton extends StatelessWidget {
   Widget _buildFab(BuildContext context) {
     final workoutPageContext = context;
     return FloatingActionButton.extended(
-      label: Text('New workout'),
+      label: Text('New workout', key: Key('new-workout-fab-label')),
       icon: Icon(Icons.add),
       foregroundColor: Colors.white,
       tooltip: 'Add new workout',

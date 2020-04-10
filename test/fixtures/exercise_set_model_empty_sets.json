@@ -1,5 +1,6 @@
 {
-    "exercise_id": "2",
-    "exercise_name": "Dumbbell Rows",
-    "sets": []
+  "exercise_id": "2",
+  "exercise_name": "Dumbbell Rows",
+  "target_weight": 45,
+  "sets": []
 }

@@ -24,7 +24,7 @@ class WorkoutPage extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Body Sculpting IO'),
+          title: Text('Body Sculpting IO', key: Key('app-bar-title')),
         ),
         body: SingleChildScrollView(
           child: _buildBody(),
@@ -111,7 +111,10 @@ class WorkoutPage extends StatelessWidget {
           ),
           Visibility(
             visible: summaries.length == 0,
-            child: Text("It's lonely here, please add some workouts!!!"),
+            child: Text(
+              "It's lonely here, please add some workouts!!!",
+              key: Key('empty-message'),
+            ),
           ),
         ],
       ),

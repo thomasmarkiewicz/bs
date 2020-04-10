@@ -61,29 +61,17 @@ class WorkoutSummaryModel extends WorkoutSummary {
 
     start.fold(
       () => {},
-      (s) => {
-        map.addAll({
-          'start': s.toIso8601String(),
-        })
-      },
+      (s) => map.addAll({'start': s.toIso8601String()}),
     );
 
     end.fold(
       () => {},
-      (e) => {
-        map.addAll({
-          'end': e.toIso8601String(),
-        })
-      },
+      (e) => map.addAll({'end': e.toIso8601String()}),
     );
 
     summary.fold(
       () => {},
-      (s) => {
-        map.addAll({
-          'summary': s,
-        })
-      },
+      (s) => map.addAll({'summary': s}),
     );
 
     return map;
