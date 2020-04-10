@@ -1,6 +1,6 @@
 # Body Sculpting
 
-![Test, build and deploy](https://github.com/thomasmarkiewicz/bodysculpting/workflows/Test,%20build%20and%20deploy/badge.svg?branch=master)
+![](https://github.com/thomasmarkiewicz/bodysculpting/workflows/Build/badge.svg?branch=master)
 
 My hope is that one day this free and open-source mobile app will become a viable alternative for keeping track of all of your workouts. You can help to make this a reality by sponsoring this development on github (find the `Sponsor` button on [here](https://github.com/thomasmarkiewicz/bodysculpting)).
 
