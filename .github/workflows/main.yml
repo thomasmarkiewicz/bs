@@ -30,6 +30,7 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: coverage/lcov.info
+      - run: echo ${{ github.ref }}
 
   drive_ios:
     #creates a build matrix for your jobs
@@ -96,7 +97,7 @@ jobs:
     #if conditional to prevent a job from running unless github.ref
     #is a tag that starts with "v", as in "v0.0.1"
     #for a normal push to master, github.ref = "master"
-    if: startsWith(github.ref, 'v')
+    if: contains(github.ref, 'v0.')
     runs-on: macos-latest
     #Identifies any jobs that must complete successfully before this job will run.
     needs: [drive_ios, drive_android, test]
