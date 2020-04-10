@@ -93,8 +93,10 @@ jobs:
           script: flutter drive --target=test_driver/app.dart
 
   build_deploy:
-    #if conditional to prevent a job from running
-    if: github.event_name != 'pull_request'
+    #if conditional to prevent a job from running unless github.ref
+    #is a tag that starts with "v", as in "v0.0.1"
+    #for a normal push to master, github.ref = "master"
+    if: startsWith(github.ref, "v")
     runs-on: macos-latest
     #Identifies any jobs that must complete successfully before this job will run.
     needs: [drive_ios, drive_android, test]
