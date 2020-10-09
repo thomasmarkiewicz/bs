@@ -38,3 +38,6 @@ lib/generated_plugin_registrant.dart
 
 # Android keystore
 android/key.properties
+
+# Rust
+target/
